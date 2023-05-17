@@ -4,7 +4,9 @@ import jwt from "jsonwebtoken";
 
 export const getUsers = async(req, res) => {
     try{
-        const users = await Users.findAll();
+        const users = await Users.findAll({
+            attributes: ['id', 'username', 'email']
+        });
         res.json(users);
     } catch(error){
         console.log(error);
@@ -54,7 +56,8 @@ export const Login = async(req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 1000,
-            secure: true
+            // secure: true
+            //Uncomment jika sudah pakai HTTPS.
         });
         res.json({ accessToken });
     } catch (error) {
