@@ -86,6 +86,60 @@ This application run locally on `http://localhost:5000`
   - If Email was Registered : `"msg": "Email already Registered!"`
   - If Password not match with Confirm Password : `"msg": "Password and Confirm Password doesn't match."`
   - If Response Fail : `"msg": "Forbidden"`
+ 
+### Login
+* URL
+  - `/login`
+  
+* Method
+  - `POST`
+  
+* Request Body, Content-Type: application/json
+  - `email` as `STRING`
+  - `password` as `STRING`
+  
+* Response Format
+  - `BLANK`
+
+### Get-User
+* URL
+  - `/users`
+  
+* Method
+  - `GET`
+  
+* Request Body, Content-Type: application/json
+  - `BLANK`
+  
+* Response Format
+  - `BLANK`
+
+### Ref-Token
+* URL
+  - `/token`
+  
+* Method
+  - `GET`
+  
+* Request Body, Content-Type: application/json
+  - `BLANK`
+  
+* Response Format
+  - `BLANK`
+
+### Logout
+* URL
+  - `/logout`
+  
+* Method
+  - `DELETE`
+  
+* Request Body, Content-Type: application/json
+  - `BLANK`
+  
+* Response Format
+  - `BLANK`
+
 
 ## Author
 
@@ -99,6 +153,6 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2023 [Six Kizuki].<br />
-This project is [GNU General Public License](https://github.com/msandypr/jwt-auth-express/blob/master/LICENSE) licensed.
+Copyright © 2023 Six Kizuki .<br />
+This project is [GNU General Public License](https://github.com/msandypr/jwt-auth-express/blob/master/LICENSE).
 ***
