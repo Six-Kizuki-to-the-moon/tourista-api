@@ -26,7 +26,9 @@ export const Register = async(req, res) => {
         });
         res.json({msg: "Register Success!"})
     } catch (error) {
-        console.log(error);
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            return res.status(400).json({ msg: 'Email already registered.' });
+        }
     }
 }
 
