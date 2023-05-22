@@ -1,19 +1,12 @@
-# JSON Web Token Authentication
-Authentication System using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).
+<h1 align="center">JSON Web Token Authentication 👋</h1>
+<p align="center">Authentication System using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).</p>
 
-<h1 align="center">Welcome to jwt-auth-express 👋</h1>
-<p>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/msandypr/jwt-auth-express/blob/master/README.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
 </p>
-
-> Authentication System using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).
-
-### 🏠 [Homepage](https://github.com/msandypr/jwt-auth-express)
-
-### ✨ [Demo](https://github.com/msandypr/jwt-auth-express/blob/master/README.md)
 
 ## Features :
 
