@@ -1,5 +1,5 @@
-<h1 align="center">JSON Web Token Authentication 👋</h1>
-<p align="center">Authentication System using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).</p>
+<h1 align="center">Tourista API 👋</h1>
+<p align="center">API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).</p>
 
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
