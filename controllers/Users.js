@@ -69,13 +69,13 @@ export const Login = async(req, res) => {
 
 export const Logout = async (req, res) => {
     const refreshToken = req.cookies.refreshToken;
-        if(!refreshToken) return res.sendStatus(204);
+        if (!refreshToken) return res.status(401).json({ message: "User is not logged in" });
         const user = await Users.findAll({
             where: {
                 refresh_token: refreshToken
             }
         });
-        if(!user[0]) return res.sendStatus(204);
+        if(!user[0]) return res.status(401).json({ message: "User is not logged in" });
         const userId = user[0].id;
         await Users.update({ refresh_token: null},{
             where: {
@@ -83,5 +83,5 @@ export const Logout = async (req, res) => {
             }
         });
         res.clearCookie('refreshToken');
-        return res.sendStatus(200);
+        return res.json({ message: "Logout successful" });
 }

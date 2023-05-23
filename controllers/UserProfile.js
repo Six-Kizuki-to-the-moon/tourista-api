@@ -46,36 +46,41 @@ export const createUserProfile = async (req, res) => {
 
 export const updateUserProfile = async (req, res) => {
     const { name, address, photo_profile, user_lat, user_lot } = req.body;
-
+  
     try {
-        const [rowsAffected] = await UserProfile.update(
-            {
-                name,
-                address,
-                photo_profile,
-                user_lat,
-                user_lot,
-            },
-            {
-                where: { id: req.params.id },
-                returning: true,
-            }
-        );
-
-        if (rowsAffected === 0) {
-            return res.status(404).json({ error: "User profile not found" });
+      const [rowsAffected] = await UserProfile.update(
+        {
+          name,
+          address,
+          photo_profile,
+          user_lat,
+          user_lot,
+        },
+        {
+          where: { id: req.params.id },
+          returning: true,
         }
-
-        const updatedUserProfile = await UserProfile.findOne({
-            where: { id: req.params.id },
-        });
-
-        res.json({ msg: "User profile updated", updatedUserProfile });
+      );
+  
+      if (rowsAffected === 0) {
+        return res.status(404).json({ error: "User profile not found" });
+      }
+  
+      const updatedUserProfile = await UserProfile.findOne({
+        where: { id: req.params.id },
+      });
+  
+      if (!updatedUserProfile) {
+        return res.status(404).json({ error: "Updated user profile not found" });
+      }
+  
+      res.json({ msg: "User profile updated", updatedUserProfile });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ msg: "Internal server error" });
+      console.error(error);
+      res.status(500).json({ msg: "Internal server error" });
     }
-};
+  };
+  
 
 
 export const deleteUserProfile = async (req, res) => {
