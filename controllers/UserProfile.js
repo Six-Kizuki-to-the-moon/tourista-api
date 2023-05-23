@@ -1,101 +1,102 @@
 import UserProfile from "../models/UserProfileModel.js";
 
-export const getUserProfile = async (req, res) => {
-    try {
-        const userProfile = await UserProfile.findOne({
-            where: { id: req.params.id, email: req.email }, // Hanya mencari profil dengan id yang cocok dan email yang cocok dengan email yang terkait dengan token
-        });
-
-        if (!userProfile) {
-            return res.status(404).json({ error: "User profile not found" });
-        }
-
-        res.json(userProfile);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ msg: "Internal server error" });
-    }
-};
-
-
-export const createUserProfile = async (req, res) => {
-    const { name, address, email, photo_profile, user_lat, user_lot } = req.body;
-
-    try {
-        const existingProfile = await UserProfile.findOne({ where: { email } });
-
-        if (existingProfile) {
-            return res.status(400).json({ error: "Email already exists" });
-        }
-
-        const userProfile = await UserProfile.create({
-            name,
-            address,
-            email,
-            photo_profile,
-            user_lat,
-            user_lot,
-        });
-
-        res.json({ msg: "User profile created", userProfile });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ msg: "Internal server error" });
-    }
-};
-
-export const updateUserProfile = async (req, res) => {
-    const { name, address, photo_profile, user_lat, user_lot } = req.body;
+export const getUserProfileById = async (req, res) => {
+    const userId = req.params.id; // Mendapatkan ID dari parameter URL
+    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
   
     try {
-      const [rowsAffected] = await UserProfile.update(
-        {
-          name,
-          address,
-          photo_profile,
-          user_lat,
-          user_lot,
-        },
-        {
-          where: { id: req.params.id },
-          returning: true,
-        }
-      );
-  
-      if (rowsAffected === 0) {
-        return res.status(404).json({ error: "User profile not found" });
-      }
-  
-      const updatedUserProfile = await UserProfile.findOne({
-        where: { id: req.params.id },
+      // Mengambil informasi UserProfile berdasarkan ID
+      const userProfile = await UserProfile.findOne({
+        where: { id: userId, email }
       });
   
-      if (!updatedUserProfile) {
-        return res.status(404).json({ error: "Updated user profile not found" });
+      if (!userProfile) {
+        return res.status(404).json({ msg: "You don't have access" });
       }
   
-      res.json({ msg: "User profile updated", updatedUserProfile });
+      res.json(userProfile);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).json({ msg: "Internal server error" });
     }
   };
   
 
+export const createUserProfile = async (req, res) => {
+    const { name, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
+    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
+  
+    try {
+      // Cek apakah profil pengguna dengan email yang sama sudah ada
+      const existingProfile = await UserProfile.findOne({
+        where: { email }
+      });
+  
+      if (existingProfile) {
+        return res.status(400).json({ msg: "User profile already exists" });
+      }
+  
+      // Buat profil pengguna baru jika belum ada
+      const userProfile = await UserProfile.create({
+        name,
+        phone_number,
+        address,
+        photo_profile,
+        user_lat,
+        user_lot,
+        email
+      });
+  
+      res.json(userProfile);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ msg: "Internal server error" });
+    }
+  };
+  
+
+export const updateUserProfile = async (req, res) => {
+  const { name, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
+  try {
+    const userProfile = await UserProfile.findOne({ where: { email: req.email } });
+    if (!userProfile) {
+      return res.status(404).json({ msg: "User profile not found" });
+    }
+    await userProfile.update({
+      name,
+      phone_number,
+      address,
+      photo_profile,
+      user_lat,
+      user_lot
+    });
+    res.json({ msg: "User profile updated successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Internal server error" });
+  }
+};
 
 export const deleteUserProfile = async (req, res) => {
+    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
+  
     try {
-        const deletedUserProfile = await UserProfile.destroy({
-            where: { id: req.params.id, email: req.email }, // Hanya menghapus profil dengan id yang cocok dan email yang cocok dengan email yang terkait dengan token
-        });
-
-        if (deletedUserProfile === 0) {
-            return res.status(404).json({ error: "User profile not found" });
-        }
-
-        res.json({ msg: "User profile deleted" });
+      const userProfile = await UserProfile.findOne({ where: { email } });
+  
+      if (!userProfile) {
+        return res.status(404).json({ msg: "User profile not found" });
+      }
+  
+      // Menambahkan pengecekan apakah email yang berwenang sesuai dengan email profil pengguna yang akan dihapus
+      if (userProfile.email !== email) {
+        return res.status(403).json({ msg: "Unauthorized" });
+      }
+  
+      await userProfile.destroy();
+      res.json({ msg: "User profile deleted successfully" });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ msg: "Internal server error" });
+      console.log(error);
+      res.status(500).json({ msg: "Internal server error" });
     }
-};
+  };
+  
