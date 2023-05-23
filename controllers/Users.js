@@ -32,40 +32,62 @@ export const Register = async(req, res) => {
     }
 }
 
-export const Login = async(req, res) => {
+export const Login = async (req, res) => {
     try {
-        const user = await Users.findAll({
-            where:{
-                email: req.body.email
-            }
-        });
-        const match = await bcrypt.compare(req.body.password, user[0].password);
-        if(!match) return res.status(400).json({msg: "Wrong Password!"});
-        const userId = user[0].id;
-        const username = user[0].username;
-        const email = user[0].email;
-        const accessToken = jwt.sign({userId, username, email}, process.env.ACCESS_TOKEN_SECRET, {
-            expiresIn: '20s'
-        });
-        const refreshToken = jwt.sign({userId, username, email}, process.env.REFRESH_TOKEN_SECRET, {
-            expiresIn: '1d'
-        });
-        await Users.update({refresh_token: refreshToken},{
-            where:{
-                id: userId
-            }
-        });
-        res.cookie('refreshToken', refreshToken, {
-            httpOnly: true,
-            maxAge: 24 * 60 * 60 * 1000,
-            // secure: true
-            //Uncomment jika sudah pakai HTTPS.
-        });
-        res.json({ accessToken });
+      const user = await Users.findAll({
+        where: {
+          email: req.body.email,
+        },
+      });
+  
+      if (user.length === 0) {
+        return res.status(404).json({ msg: "Email not Registered! or Wrong Email!" });
+      }
+  
+      const match = await bcrypt.compare(req.body.password, user[0].password);
+  
+      if (!match) {
+        return res.status(400).json({ msg: "Wrong Password!" });
+      }
+  
+      const userId = user[0].id;
+      const username = user[0].username;
+      const email = user[0].email;
+  
+      const accessToken = jwt.sign(
+        { userId, username, email },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: '20s' }
+      );
+  
+      const refreshToken = jwt.sign(
+        { userId, username, email },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: '1d' }
+      );
+  
+      await Users.update(
+        { refresh_token: refreshToken },
+        {
+          where: {
+            id: userId,
+          },
+        }
+      );
+  
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+        // secure: true
+        // Uncomment jika sudah pakai HTTPS.
+      });
+  
+      res.json({ msg: "Login successful", accessToken });
     } catch (error) {
-        res.status(404).json({msg: "Email not Registered!"});
+      res.status(500).json({ msg: "Internal server error" });
     }
-}
+  };
+  
 
 export const Logout = async (req, res) => {
     const refreshToken = req.cookies.refreshToken;
