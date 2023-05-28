@@ -1,4 +1,4 @@
-import UserProfile from "../models/UserProfileModel.js";
+import UserProfile from "../models/allModels/UserProfileModel.js";
 
 export const getUserProfileById = async (req, res) => {
     const userId = req.params.id; // Mendapatkan ID dari parameter URL

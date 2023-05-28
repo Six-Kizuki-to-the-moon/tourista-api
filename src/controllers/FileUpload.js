@@ -1,17 +1,17 @@
 import processFile from '../middleware/ProcessFile.js';
 import { format } from 'util';
 import gcs from '../config/gcs.js';
-import UserProfile from '../models/UserProfileModel.js';
+import model from '../models/index.js';
 
 const storage = gcs;
 const bucketName = 'tourista-test.appspot.com';
 const bucket = storage.bucket(bucketName);
 
 export const uploadFile = async (req, res) => {
-  const userId = req.userId;
+  const emailUser = req.email;
   try {
-    await UserProfile.findOne({
-      id: userId,
+    await model.UserProfile.findOne({
+      email: emailUser,
     });
     await processFile(req, res);
     // Create a new blob in the bucket and upload the file data.
@@ -27,11 +27,11 @@ export const uploadFile = async (req, res) => {
     blobStream.on('finish', async (data) => {
       // Create URL for directly file access via HTTP.
       const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
-      await UserProfile.update(
-        { image: publicUrl },
+      await model.UserProfile.update(
+        { photo_profile: publicUrl },
         {
           where: {
-            userId: userId,
+            email: emailUser,
           },
         }
       );
