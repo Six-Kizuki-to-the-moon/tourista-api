@@ -7,7 +7,7 @@ export const UserProfile = db.define('user_profile', {
     type: DataTypes.STRING
   },
   phone_number: {
-    type: DataTypes.INTEGER
+    type: DataTypes.STRING
   },
   address: {
     type: DataTypes.STRING
