@@ -7,6 +7,12 @@ import { uploadFile } from '../controllers/FileUpload.js';
 
 const router = express.Router();
 
+// Route untuk halaman homepage
+router.get('/', (req, res) => {
+    const homePath = path.join(__dirname, '../public/index.html');
+    res.sendFile(homePath);
+  });
+
 // controllers/Users.js routes
 router.get('/users', verifyToken, getUsers);
 router.post('/users', Register);
@@ -24,7 +30,5 @@ router.delete('/users/deleteProfile', verifyToken, deleteUserProfile);
 router.post("/upload", verifyToken, uploadFile); 
 // router.post("/upload/files", getFile); 
 // router.post("/upload/files/:name", downloadFile); 
-
-
 
 export default router;
