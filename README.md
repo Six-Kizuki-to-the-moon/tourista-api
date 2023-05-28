@@ -1,21 +1,6 @@
 <h1 align="center">Tourista API 👋</h1>
 <p align="center">API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).</p>
 
-<p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/msandypr/jwt-auth-express/blob/master/README.md" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-</p>
-
-## Features :
-
-* Get data from table
-* Refresh Token
-* Login user_account
-* Register user_account
-* Logout user_account
-
 ## Prerequisites and Technology
 
 - [Express](https://expressjs.com/)
@@ -25,6 +10,9 @@
 - [Dotenv](https://www.dotenv.org/)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Multer](https://www.npmjs.com/package/multer)
+- [@google-cloud/storage](https://www.npmjs.com/package/@google-cloud/storage)
 - [CORS](https://www.npmjs.com/package/cors)
 - [Nodemon](https://nodemon.io/)
 
@@ -33,7 +21,7 @@
 Firstly, you need to clone this repository using this following command :
 
 ```sh
-git clone https://github.com/msandypr/jwt-auth-express.git
+git clone https://github.com/msandypr/tourista-api.git
 ```
 
 Then, open the project folder using cd jwt-auth-express, depends on your clone folder location, after that, you need to install dependency using this following command :
@@ -49,90 +37,9 @@ After that, run the jwt-auth-express locally using nodemon, if you never install
 nodemon index
 ```
 
-This will run the application locally on `http://localhost:5000`. Dont forget to create database first on your local machine, db name is `auth_db` or change it by yourself in `config/Database.js`
+This will run the application locally on `http://localhost:5000`. Dont forget to create database first on your local machine, db name is `tourista_db` or change it by yourself in `src/config/Database.js`
 
-## Documentation
-
-### API Endpoints
-This application run locally on `http://localhost:5000`
-* `GET /users` = Get all users in user_account table
-* `POST /users` = Add a users to regist in user_account
-* `POST /login` = Login a users
-* `GET /token` = Refresh a users token
-* `DELETE /logout` = Logout an account
-
-### Register
-* URL
-  - `/register`
-  
-* Method
-  - `POST`
-  
-* Request Body, Content-Type: application/json
-  - `username` as `STRING`
-  - `email` as `STRING`
-  - `password` as `STRING`
-  - `confirmPassword` as `STRING`
-  
-* Response Format
-  - If Response Success : `"msg": "Register Success!"`
-  - If Email was Registered : `"msg": "Email already Registered!"`
-  - If Password not match with Confirm Password : `"msg": "Password and Confirm Password doesn't match."`
-  - If Response Fail : `"msg": "Forbidden"`
- 
-### Login
-* URL
-  - `/login`
-  
-* Method
-  - `POST`
-  
-* Request Body, Content-Type: application/json
-  - `email` as `STRING`
-  - `password` as `STRING`
-  
-* Response Format
-  - `BLANK`
-
-### Get-User
-* URL
-  - `/users`
-  
-* Method
-  - `GET`
-  
-* Request Body, Content-Type: application/json
-  - `BLANK`
-  
-* Response Format
-  - `BLANK`
-
-### Ref-Token
-* URL
-  - `/token`
-  
-* Method
-  - `GET`
-  
-* Request Body, Content-Type: application/json
-  - `BLANK`
-  
-* Response Format
-  - `BLANK`
-
-### Logout
-* URL
-  - `/logout`
-  
-* Method
-  - `DELETE`
-  
-* Request Body, Content-Type: application/json
-  - `BLANK`
-  
-* Response Format
-  - `BLANK`
-
+`The Documentation explained on Homepage of this API, just run the API and go to the '/' Endpoint`
 
 ## Author
 
