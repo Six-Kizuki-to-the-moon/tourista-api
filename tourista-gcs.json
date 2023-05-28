@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tourista-test",
+  "private_key_id": "2015fd815c8a469d677d7ef61946142985e100ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCc/jCMsSUHJbDp\nixiZhh0sLUpb/2xb2k2U++8x6U0Jx7Kv11lu3oRXYC4JODc/1HHtTJniSgdvbQIi\n/SZ/fi4NGHu0mslQyTiySgvz7EKLme3cw/Gicb6AWzw08S8RRg53wpSt9eNW9VhF\nw7Ft2WCPy3AHgVahA5rPX4o1K3TiKt13NAnIOzSKr0Ad/lpZvhQTtwoUQgdGz+HU\npVNnTw5sJ9XwCqGTDJZsunKApgHkXgz8yQGHQHtHLbTeRLpM6Gg2ljqji6npPPqq\ndeggVJz86P+rIVBIRPdAAEIqTXcVeL18jRgnoywnWO/mFTFaT0lMAiUogTBaECJX\nZPH6EnHbAgMBAAECggEAAMztAMf7HoULLg2sWPANoFw0wlupjkhX1+127plixVd+\n1OsIr4oz64wif/Uzlurlj9EHAdfgdNQooXa1UQtwKayZHjZ3K1HIrQ637oz4WTo2\nM8d4qRw3sp4vJD1Mlk51+WyvvGQCE5SZrXVjfLdnM3nVPuc3wrIVgn7ZYg8FgA0M\n2rqwT11DtKeOV15yqUJbZ5tCfqV7L0cfjtkX3UV3YcTF5PEOWxc6eXVgiEDHyTdL\nV7TY6X+HhfS4k/HIQX+DCpzlcGanmR6j46WLtsZhK7CopOZjC0nQw3CWrB6TkqSN\nEvzE5LXdV7N1sjUpgddFi4dZQA+nRdv5wjHj6HNgjQKBgQDUzrT2LkdrBT1eewjY\nPGw4Twp2MW0TBsFHhvgMJvOns/89rAEqib7cksDrQNPwVGymThqKQNvPqfR8Dd2P\n6m5bV4WVyUziLPCHr7GL7qQ81Z0W2TnsNLCbNT48tvx4Uubc3FPTn6OIjQVsmiYm\n7YKpA8dCAwcUmWWj6felI7QqfQKBgQC822hybXZZ3NVZE1oZAJPfHatZ3PocZiAX\n1eySr9MMZY7etXSd3dPeWketEiBvSGFVD9QrKvyYFxlnSnH+Hrp/sED+xHe5/b52\nFFpdOalEZLbHETWzviQWpLoE6HblkQ/80FoLme59P5GlAPdNlTAtRFp3U0KxxI+3\n4YCg+SJlNwKBgGkokBHKwq3m0/GZOMCp8wxMOq43NGAfiWkQEAjpQqQPdUSDd7wO\nf0s+FajqyxBKl7oChGjnLffLUy3uKBtSzB/E+xUOeTiW3nEeZ8zvKyeIo2zEATRw\nwQihYdTc05ud08k18xJzI3t5vEFzVwELgvKEFHXRSzFpr+k015Q6NXB9AoGASDq+\nCq2Uyy+rpULCfbd71qR5SYg7XCsu8Q7PSRbX5/DboI/TxyD1DCCJM0cwgn8zQp4o\nLk5lhyGmhJuzV1aXS4i0gvvPMqI6etyz5t3LwC2ovh/14wXAtaxQvNnPx2MgszdY\niQFZdiue33WsH88EOvvega6lXmnn8ZLcaDSAlCcCgYEAo3QcvfI6+A8xTmdwuv0f\n6B8peQD5AYEwiLSb4WG7AtpSSRdXy0ZEpDPWjtt5qUah2reByQmJEK1pf1v8b2cu\n/9rkQRVAL5eSJmGFy+0v8SAqTRF4H+JSU7bLCbSenauZAejN5Rc7N4qPBLWrAFy6\nnr7V78FYjHO4DmlWsdZcFMk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tourista-test@appspot.gserviceaccount.com",
+  "client_id": "115312959272399128174",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tourista-test%40appspot.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

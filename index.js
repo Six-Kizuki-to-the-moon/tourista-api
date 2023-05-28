@@ -5,6 +5,7 @@ import UserProfile from "./models/UserProfileModel.js";
 import router from "./routes/index.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 import cors from "cors";
 
 dotenv.config();
@@ -19,9 +20,10 @@ try{
     console.error(error);
 }
 
-app.use(cors({ credentials: true, origin: 'http://localhost:3000'})) //Origin aplikasi front-endnya
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // Origin aplikasi front-endnya
 app.use(cookieParser());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(router);
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));

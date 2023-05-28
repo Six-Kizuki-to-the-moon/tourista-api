@@ -14,7 +14,11 @@ export const getUsers = async(req, res) => {
 };
 
 export const Register = async(req, res) => {
-    const { username, email, password, confirmPassword } = req.body;
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmPassword = req.body.confirmPassword;
+  
     if(password !== confirmPassword) return res.status(400).json({msg: "Password and Confirm Password doesn't match."});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);

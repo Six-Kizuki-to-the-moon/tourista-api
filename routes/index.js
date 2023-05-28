@@ -3,6 +3,7 @@ import { verifyToken } from '../middleware/VerifyToken.js';
 import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile } from '../controllers/UserProfile.js';
+import { uploadFile } from '../controllers/FileUpload.js';
 
 const router = express.Router();
 
@@ -13,11 +14,16 @@ router.post('/login', Login);
 router.get('/token', refreshToken);
 router.delete('/logout', Logout);
 
-// UserProfileController.js routes
+// controllers/UserProfile.js routes
 router.get("/users/:id", verifyToken, getUserProfileById);
 router.post('/users/createProfile', verifyToken, createUserProfile);
 router.put('/users/updateProfile', verifyToken, updateUserProfile);
 router.delete('/users/deleteProfile', verifyToken, deleteUserProfile);
+
+// controllers/FileUpload.js routes
+router.post("/upload", verifyToken, uploadFile); 
+// router.post("/upload/files", getFile); 
+// router.post("/upload/files/:name", downloadFile); 
 
 
 
