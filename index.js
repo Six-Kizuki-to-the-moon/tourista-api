@@ -18,6 +18,9 @@ import DestinationPenginapan from "./src/models/allModels/DestinationPenginapan.
 import DestinationDetail from "./src/models/allModels/DestinationDetail.js";
 import ReviewPenginapan from "./src/models/allModels/ReviewPenginapan.js";
 import ReviewWisata from "./src/models/allModels/ReviewWisata.js";
+import Umkm from "./src/models/allModels/Umkm.js";
+import UmkmDetail from "./src/models/allModels/UmkmDetail.js";
+
 
 
 dotenv.config();
@@ -36,6 +39,8 @@ try{
     await DestinationDetail.sync(); //Automatically generate table if not exists
     await ReviewPenginapan.sync(); //Automatically generate table if not exists
     await ReviewWisata.sync(); //Automatically generate table if not exists
+    await Umkm.sync(); //Automatically generate table if not exists
+    await UmkmDetail.sync(); //Automatically generate table if not exists
 } catch(error){
     console.error(error);
 }

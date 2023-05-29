@@ -1,6 +1,7 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
 import { DestinationWisata } from './DestinationWisata.js';
+import { Umkm } from './Umkm.js';
 
 export const DestinationDetail = db.define('destination_detail', {
   name_wisata: {
@@ -37,14 +38,16 @@ export const DestinationDetail = db.define('destination_detail', {
   destination_lot: {
     type: DataTypes.DOUBLE
   },
-  umkm: {
-    type: DataTypes.STRING
-  },
+//   umkm_on_destination: {
+//     type: DataTypes.STRING,
+//     unique: true
+//   },
 }, {
   freezeTableName: true
 });
 
 // Added the relationship between UserProfile and Users
 DestinationDetail.belongsTo(DestinationWisata, { foreignKey: 'name_wisata', targetKey: 'name_wisata' });
+// DestinationDetail.belongsTo(Umkm, { foreignKey: 'umkm_on_destination', targetKey: 'name_umkm' });
 
 export default DestinationDetail;
