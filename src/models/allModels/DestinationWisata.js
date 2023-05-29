@@ -7,7 +7,8 @@ export const DestinationWisata = db.define('destination_wisata', {
     type: DataTypes.STRING
   },
   name_wisata: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    unique: true
   },
   photo_wisata: {
     type: DataTypes.STRING
