@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
-import { Trip } from './Trip.js';
+import { Trip } from './TripModel.js';
 
 export const DestinationWisata = db.define('destination_wisata', {
   trip_name: {

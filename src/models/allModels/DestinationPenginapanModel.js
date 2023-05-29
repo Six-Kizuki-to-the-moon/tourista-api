@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
-import { Trip } from './Trip.js';
+import { Trip } from './TripModel.js';
 
 export const DestinationPenginapan = db.define('destination_penginapan', {
   use_lodging: {
@@ -22,6 +22,7 @@ export const DestinationPenginapan = db.define('destination_penginapan', {
   freezeTableName: true
 });
 
+// Added the relationship between UserProfile and Users
 DestinationPenginapan.belongsTo(Trip, { foreignKey: 'use_lodging', targetKey: 'use_lodging' })
 
 export default DestinationPenginapan;

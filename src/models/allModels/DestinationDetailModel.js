@@ -1,12 +1,11 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
-import { DestinationWisata } from './DestinationWisata.js';
-import { Umkm } from './Umkm.js';
+import { DestinationWisata } from './DestinationWisataModel.js';
+import { Umkm } from './UmkmModel.js';
 
 export const DestinationDetail = db.define('destination_detail', {
   name_wisata: {
-    type: DataTypes.STRING,
-    unique: true
+    type: DataTypes.STRING
   },
   description_wisata: {
     type: DataTypes.STRING
@@ -38,16 +37,22 @@ export const DestinationDetail = db.define('destination_detail', {
   destination_lot: {
     type: DataTypes.DOUBLE
   },
-//   umkm_on_destination: {
-//     type: DataTypes.STRING,
-//     unique: true
-//   },
+  umkm_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: false,
+    references: {
+      model: Umkm,
+      key: 'umkm_id'
+    }
+  },
 }, {
   freezeTableName: true
 });
 
-// Added the relationship between UserProfile and Users
+// Added the relationship between DestinationDetail and DestinationWisata
 DestinationDetail.belongsTo(DestinationWisata, { foreignKey: 'name_wisata', targetKey: 'name_wisata' });
-// DestinationDetail.belongsTo(Umkm, { foreignKey: 'umkm_on_destination', targetKey: 'name_umkm' });
+// Added the relationship between DestinationDetail and Umkm
+DestinationDetail.belongsTo(Umkm, { foreignKey: 'umkm_id', targetKey: 'umkm_id' });
 
 export default DestinationDetail;
