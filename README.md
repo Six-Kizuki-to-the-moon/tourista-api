@@ -1,5 +1,5 @@
 <h1 align="center">Tourista API 👋</h1>
-<p align="center">API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL &amp; JSON Web Tokens (JWT).</p>
+<p align="center">API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL.</p>
 
 ## Prerequisites and Technology
 
