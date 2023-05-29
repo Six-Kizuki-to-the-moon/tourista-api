@@ -1,22 +1,22 @@
 {
-  "name": "jwt-auth-express",
+  "name": "tourista-api",
   "version": "1.0.0",
-  "description": "Authentication System using Node.js, Express, MySQL & JSON Web Tokens (JWT).",
+  "description": "API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/msandypr/jwt-auth-express.git"
+    "url": "git+https://github.com/msandypr/tourista-api.git"
   },
   "author": "@msandypr",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/msandypr/jwt-auth-express/issues"
+    "url": "https://github.com/msandypr/tourista-api/issues"
   },
-  "homepage": "https://github.com/msandypr/jwt-auth-express#readme",
+  "homepage": "https://github.com/msandypr/tourista-api#readme",
   "dependencies": {
     "@google-cloud/storage": "^6.10.1",
     "bcrypt": "^5.1.0",
