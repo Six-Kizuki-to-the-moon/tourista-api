@@ -1,14 +1,22 @@
+// APIs Configuration and Libraries
 import express from "express";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import db from "./src/config/Database.js";
-import Users from "./src/models/allModels/UserModel.js";
-import UserProfile from "./src/models/allModels/UserProfileModel.js";
 import router from "./src/routes/index.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import cors from "cors";
+
+//Database Models
+import Users from "./src/models/allModels/UserModel.js";
+import UserProfile from "./src/models/allModels/UserProfileModel.js";
+import Trip from "./src/models/allModels/Trip.js";
+import DestinationWisata from "./src/models/allModels/DestinationWisata.js";
+import DestinationPenginapan from "./src/models/allModels/DestinationPenginapan.js";
+import ReviewPenginapan from "./src/models/allModels/ReviewPenginapan.js";
+
 
 dotenv.config();
 const app = express();
@@ -20,6 +28,10 @@ try{
     console.log('Database Successfuly Connected');
     await Users.sync(); //Automatically generate table if not exists
     await UserProfile.sync(); //Automatically generate table if not exists
+    await Trip.sync(); //Automatically generate table if not exists
+    await DestinationWisata.sync(); //Automatically generate table if not exists
+    await DestinationPenginapan.sync(); //Automatically generate table if not exists
+    await ReviewPenginapan.sync(); //Automatically generate table if not exists
 } catch(error){
     console.error(error);
 }

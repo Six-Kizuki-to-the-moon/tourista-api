@@ -1,31 +1,28 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
-import { Users } from './UserModel.js';
+import { Trip } from './Trip.js';
 
-export const UserProfile = db.define('user_profile', {
-  name: {
+export const DestinationWisata = db.define('destination_wisata', {
+  trip_name: {
     type: DataTypes.STRING
   },
-  phone_number: {
+  name_wisata: {
     type: DataTypes.STRING
   },
-  address: {
+  photo_wisata: {
     type: DataTypes.STRING
   },
-  photo_profile: {
+  lokasi_wisata: {
     type: DataTypes.STRING
   },
-  user_lat: {
+  rating: {
     type: DataTypes.DOUBLE
   },
-  user_lot: {
-    type: DataTypes.DOUBLE
-  }
 }, {
   freezeTableName: true
 });
 
 // Added the relationship between UserProfile and Users
-UserProfile.belongsTo(Users, { foreignKey: 'email', targetKey: 'email' });
+DestinationWisata.belongsTo(Trip, { foreignKey: 'trip_name', targetKey: 'trip_name' });
 
-export default UserProfile;
+export default DestinationWisata;
