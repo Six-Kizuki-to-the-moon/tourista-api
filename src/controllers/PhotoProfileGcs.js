@@ -36,7 +36,7 @@ export const uploadFile = async (req, res) => {
         }
       );
       res.status(200).send({
-        message: 'File berhasil diupload ' + req.file.originalname,
+        message: 'Your Profile Picture Successfully Updated : ' + req.file.originalname,
         url: publicUrl,
       });
     });
@@ -45,11 +45,11 @@ export const uploadFile = async (req, res) => {
   } catch (err) {
     if (err.code == 'LIMIT_FILE_SIZE') {
       return res.status(500).send({
-        message: 'File tidak dapat lebih besar 5MB!',
+        message: 'Files cannot be larger than 2MB!',
       });
     }
     res.status(500).send({
-      message: `Tidak dapat mengupload file: ${req.file.originalname}. ${err}`,
+      message: `Unable to upload file: ${req.file.originalname}. ${err}`,
     });
   }
 };

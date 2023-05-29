@@ -1,11 +1,11 @@
 import UserProfile from "../models/allModels/UserProfileModel.js";
 
 export const getUserProfileById = async (req, res) => {
-    const userId = req.params.id; // Mendapatkan ID dari parameter URL
-    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
+    const userId = req.params.id; // Gets the ID from the URL parameter
+    const email = req.email; // Using an email from a verified token
   
     try {
-      // Mengambil informasi UserProfile berdasarkan ID
+      // Retrieving UserProfile information by ID
       const userProfile = await UserProfile.findOne({
         where: { id: userId, email }
       });
@@ -24,10 +24,10 @@ export const getUserProfileById = async (req, res) => {
 
 export const createUserProfile = async (req, res) => {
     const { name, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
-    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
+    const email = req.email; // Using an email from a verified token
   
     try {
-      // Cek apakah profil pengguna dengan email yang sama sudah ada
+      // Check if a user profile with the same email already exists
       const existingProfile = await UserProfile.findOne({
         where: { email }
       });
@@ -36,7 +36,7 @@ export const createUserProfile = async (req, res) => {
         return res.status(400).json({ msg: "User profile already exists" });
       }
   
-      // Buat profil pengguna baru jika belum ada
+      // Create a new user profile if it doesn't already exist
       const userProfile = await UserProfile.create({
         name,
         phone_number,
@@ -78,7 +78,7 @@ export const updateUserProfile = async (req, res) => {
 };
 
 export const deleteUserProfile = async (req, res) => {
-    const email = req.email; // Menggunakan email dari token yang telah diverifikasi
+    const email = req.email; // Using an email from a verified token
   
     try {
       const userProfile = await UserProfile.findOne({ where: { email } });
@@ -87,7 +87,7 @@ export const deleteUserProfile = async (req, res) => {
         return res.status(404).json({ msg: "User profile not found" });
       }
   
-      // Menambahkan pengecekan apakah email yang berwenang sesuai dengan email profil pengguna yang akan dihapus
+      // Added checking whether the authorized email matches the profile email of the user to be deleted
       if (userProfile.email !== email) {
         return res.status(403).json({ msg: "Unauthorized" });
       }

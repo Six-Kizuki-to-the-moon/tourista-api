@@ -24,8 +24,8 @@ try{
     console.error(error);
 }
 
-app.use(express.static(path.join(__dirname, 'public'))); // Menyajikan file statis
-app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // Origin aplikasi front-endnya
+app.use(express.static(path.join(__dirname, 'public'))); // Serves static files for Homepage Documentation
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // For relaxing security the security applied in API, so you can access the API through client
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

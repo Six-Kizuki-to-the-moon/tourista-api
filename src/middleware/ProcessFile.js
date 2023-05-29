@@ -1,7 +1,7 @@
 import util from 'util';
 import multer from 'multer';
 
-const size = 5 * 1024 * 1024;
+const size = 2 * 1024 * 1024;
 
 let processFile = multer({
   storage: multer.memoryStorage(),

@@ -7,34 +7,26 @@
 	},
 	"item": [
 		{
-			"name": "Register",
+			"name": "[DEPRECATED]users/getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "ujik_ganteng",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "ujik@ganteng.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "ujik12345",
-							"type": "text"
-						},
-						{
-							"key": "confirmPassword",
-							"value": "ujik123458",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "http://localhost:5000/users",
@@ -51,6 +43,51 @@
 			"response": []
 		},
 		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ujik_ganteng",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ujik1@ganteng.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ujik12345",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "ujik12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -60,64 +97,26 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "sandy@gmail.com",
+							"value": "ujik1@ganteng.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "12345678",
+							"value": "ujik12345",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/login",
+					"raw": "http://localhost:5000/auth/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
+						"auth",
 						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Upload File",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI1Njc3NywiZXhwIjoxNjg1MzQzMTc3fQ.nIWGgZXLXUyJqvEolt46Bpt5B5mY1ph3_Fklk8hPf2Y",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": "/C:/Users/msandypr/Downloads/56e44ccb3133e6165388453da1513505.jpg"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/upload",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"upload"
 					]
 				}
 			},
@@ -136,13 +135,14 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:5000/token",
+					"raw": "http://localhost:5000/auth/token",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
+						"auth",
 						"token"
 					]
 				}
@@ -159,50 +159,15 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:5000/logout",
+					"raw": "http://localhost:5000/auth/logout",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
+						"auth",
 						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "users/getAll",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": []
-				},
-				"url": {
-					"raw": "http://localhost:5000/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"users"
 					]
 				}
 			},
@@ -216,7 +181,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NTM0NDgyMSwiZXhwIjoxNjg1NDMxMjIxfQ.v98G3gXaUNGPVLRnz0dQ3eOAdOsAwb5JN-UfK8otWSY",
 							"type": "string"
 						}
 					]
@@ -224,7 +189,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/11",
+					"raw": "http://localhost:5000/users/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -232,7 +197,7 @@
 					"port": "5000",
 					"path": [
 						"users",
-						"11"
+						"3"
 					]
 				}
 			},
@@ -246,7 +211,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NTM0NDgyMSwiZXhwIjoxNjg1NDMxMjIxfQ.v98G3gXaUNGPVLRnz0dQ3eOAdOsAwb5JN-UfK8otWSY",
 							"type": "string"
 						}
 					]
@@ -258,17 +223,17 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "udin",
+							"value": "ujikkk",
 							"type": "text"
 						},
 						{
 							"key": "phone_number",
-							"value": "9021421",
+							"value": "082188883333",
 							"type": "text"
 						},
 						{
 							"key": "address",
-							"value": "gang udin",
+							"value": "Jalan Ujik",
 							"type": "text"
 						},
 						{
@@ -278,12 +243,12 @@
 						},
 						{
 							"key": "user_lat",
-							"value": "213214.421214",
+							"value": "2214.316656",
 							"type": "text"
 						},
 						{
 							"key": "user_lot",
-							"value": "12412.4221",
+							"value": "-12412.4221",
 							"type": "text"
 						}
 					]
@@ -311,7 +276,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NTM0NDgyMSwiZXhwIjoxNjg1NDMxMjIxfQ.v98G3gXaUNGPVLRnz0dQ3eOAdOsAwb5JN-UfK8otWSY",
 							"type": "string"
 						}
 					]
@@ -323,12 +288,12 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "asfasasas",
+							"value": "Ujiksss",
 							"type": "text"
 						},
 						{
 							"key": "phone_number",
-							"value": "21412421",
+							"value": "08228921842",
 							"type": "text"
 						},
 						{
@@ -343,7 +308,7 @@
 						},
 						{
 							"key": "user_lat",
-							"value": "21424.4444",
+							"value": "-867.432",
 							"type": "text"
 						},
 						{
@@ -376,7 +341,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NTM0NDgyMSwiZXhwIjoxNjg1NDMxMjIxfQ.v98G3gXaUNGPVLRnz0dQ3eOAdOsAwb5JN-UfK8otWSY",
 							"type": "string"
 						}
 					]
@@ -393,6 +358,46 @@
 					"path": [
 						"users",
 						"deleteProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/uploadProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NTM0NDgyMSwiZXhwIjoxNjg1NDMxMjIxfQ.v98G3gXaUNGPVLRnz0dQ3eOAdOsAwb5JN-UfK8otWSY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/msandypr/Documents/Tourista App RDBMS.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/uploadProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"uploadProfile"
 					]
 				}
 			},

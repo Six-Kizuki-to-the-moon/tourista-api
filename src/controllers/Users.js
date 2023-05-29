@@ -83,7 +83,7 @@ export const Login = async (req, res) => {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
         // secure: true
-        // Uncomment jika sudah pakai HTTPS.
+        // Uncomment line above if you using HTTPS.
       });
   
       res.json({ msg: "Login successful", accessToken });
