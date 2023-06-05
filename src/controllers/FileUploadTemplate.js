@@ -1,21 +1,12 @@
-import processFile from '../middleware/ProcessFile.js';
-import { format } from 'util';
-import gcs from '../config/gcs.js';
-import model from '../models/index.js';
-
-const storage = gcs;
-const bucketName = 'tourista-test.appspot.com';
-const bucket = storage.bucket(bucketName);
-
 export const uploadFile = async (req, res) => {
   const emailUser = req.email;
   try {
-    await model.UserProfile.findOne({ //change with the model you want to insert the gcs file's link
+    await model.UserProfile.findOne({
       email: emailUser,
     });
     await processFile(req, res);
     // Create a new blob in the bucket and upload the file data.
-    const blob = bucket.file(req.file.originalname);
+    const blob = bucket.file(`user_profile/${req.file.originalname}`);
     const blobStream = blob.createWriteStream({
       resumable: false,
     });
@@ -27,8 +18,8 @@ export const uploadFile = async (req, res) => {
     blobStream.on('finish', async (data) => {
       // Create URL for directly file access via HTTP.
       const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
-      await model.UserProfile.update( //change with the model you want to insert the gcs file's link
-        { photo_profile: publicUrl }, //change with the field you want to insert the gcs file's link
+      await model.UserProfile.update(
+        { photo_profile: publicUrl },
         {
           where: {
             email: emailUser,

@@ -22,7 +22,7 @@ export const DestinationPenginapan = db.define('destination_penginapan', {
   freezeTableName: true
 });
 
-// Added the relationship between UserProfile and Users
+// Added the relationship between DestinationPenginapan and Trip
 DestinationPenginapan.belongsTo(Trip, { foreignKey: 'use_lodging', targetKey: 'use_lodging' })
 
 export default DestinationPenginapan;

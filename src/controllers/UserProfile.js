@@ -115,8 +115,11 @@ export const uploadFile = async (req, res) => {
       email: emailUser,
     });
     await processFile(req, res);
+    // Generate a random string to make the file name unique.
+    const randomString = Math.random().toString(36).substring(2, 15);
+
     // Create a new blob in the bucket and upload the file data.
-    const blob = bucket.file(req.file.originalname);
+    const blob = bucket.file(`user_profile/${randomString}${req.file.originalname}`);
     const blobStream = blob.createWriteStream({
       resumable: false,
     });
@@ -154,3 +157,4 @@ export const uploadFile = async (req, res) => {
     });
   }
 };
+
