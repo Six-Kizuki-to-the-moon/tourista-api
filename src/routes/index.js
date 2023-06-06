@@ -4,6 +4,7 @@ import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
+import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
 const router = express.Router();
@@ -33,7 +34,7 @@ router.get('/trip/:id', getTripById);
 router.post('/trip', createTrip);
 router.put('/trip/:id', updateTrip);
 router.delete('/trip/:id', deleteTrip);
-router.post('/trip/uploadImage/:id', uploadTripImage);
+router.post('/trip/:id/uploadImage', processFileMiddleware, uploadTripImage);
 
 
 export default router;

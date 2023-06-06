@@ -85,54 +85,56 @@ export const deleteTrip = async (req, res) => {
 };
 
 export const uploadTripImage = async (req, res) => {
-    const { tripId } = req.params;
-    const emailUser = req.email;
-    try {
-      // Check if the trip exists
-      const trip = await Trip.findOne({
-        where: { id: tripId },
-      });
-  
-      if (!trip) {
+  const { id } = req.params;
+  const file = req.file;
+
+  if (!file) {
+    return res.status(400).json({ message: 'No file uploaded' });
+  }
+
+  try {
+    const bucket = storage.bucket(bucketName);
+    const fileName = `trip_${id}_${file.originalname}`;
+    const fileOptions = {
+      metadata: {
+        contentType: file.mimetype
+      },
+      resumable: false
+    };
+
+    const blob = bucket.file(fileName);
+    const blobStream = blob.createWriteStream(fileOptions);
+
+    blobStream.on('error', (error) => {
+      console.log('Error uploading file:', error);
+      return res.status(500).json({ error: 'Error uploading file' });
+    });
+
+    blobStream.on('finish', async () => {
+      const publicUrl = `https://storage.googleapis.com/${bucketName}/${blob.name}`;
+      
+      // Update URL file di tabel trip
+      try {
+        const trip = await Trip.findByPk(id);
+        if (trip) {
+          await trip.update({ trip_image: publicUrl });
+          return res.status(200).json({ 
+            message: 'File uploaded and trip image updated successfully',
+            fileUrl: publicUrl 
+          });
+        }
         return res.status(404).json({ message: 'Trip not found' });
+      } catch (error) {
+        console.log('Error updating trip image:', error);
+        return res.status(500).json({ error: 'Error updating trip image' });
       }
-  
-      await processFile(req, res);
-  
-      // Generate a random string to make the file name unique.
-      const randomString = Math.random().toString(36).substring(2, 15);
-  
-      // Create a new blob in the bucket and upload the file data.
-      const blob = bucket.file(`trip_images/${randomString}${req.file.originalname}`);
-      const blobStream = blob.createWriteStream({
-        resumable: false,
-      });
-  
-      blobStream.on('error', (err) => {
-        res.status(500).send({ message: err.message });
-      });
-  
-      blobStream.on('finish', async (data) => {
-        // Create URL for direct file access via HTTP.
-        const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
-        await trip.update({ trip_image: publicUrl });
-  
-        res.status(200).send({
-          message: 'Trip image successfully updated',
-          url: publicUrl,
-        });
-      });
-  
-      blobStream.end(req.file.buffer);
-    } catch (err) {
-      if (err.code === 'LIMIT_FILE_SIZE') {
-        return res.status(500).send({
-          message: 'File cannot be larger than 2MB!',
-        });
-      }
-      res.status(500).send({
-        message: `Unable to upload file: ${req.file.originalname}. ${err}`,
-      });
-    }
-  };
+    });
+
+    blobStream.end(file.buffer);
+  } catch (error) {
+    console.log('Error uploading file:', error);
+    return res.status(500).json({ error: 'Error uploading file' });
+  }
+};
+
   
