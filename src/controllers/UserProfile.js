@@ -1,5 +1,5 @@
 import UserProfile from "../models/allModels/UserProfileModel.js";
-import processFile from '../middleware/ProcessFile.js';
+import processFileMiddleware from '../middleware/ProcessFile.js';
 import { format } from 'util';
 import gcs from '../config/gcs.js';
 import model from '../models/index.js';
@@ -111,10 +111,21 @@ export const deleteUserProfile = async (req, res) => {
 export const uploadFile = async (req, res) => {
   const emailUser = req.email;
   try {
-    await model.UserProfile.findOne({
-      email: emailUser,
+    const userProfile = await model.UserProfile.findOne({
+      where: {
+        email: emailUser,
+      },
     });
-    await processFile(req, res);
+    if (!userProfile) {
+      return res.status(404).json({ message: 'User profile not found' });
+    }
+
+    await processFileMiddleware(req, res); // Gunakan processFileMiddleware yang sudah diimpor
+
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
     // Generate a random string to make the file name unique.
     const randomString = Math.random().toString(36).substring(2, 15);
 
@@ -131,14 +142,9 @@ export const uploadFile = async (req, res) => {
     blobStream.on('finish', async (data) => {
       // Create URL for directly file access via HTTP.
       const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
-      await model.UserProfile.update(
-        { photo_profile: publicUrl },
-        {
-          where: {
-            email: emailUser,
-          },
-        }
-      );
+      await userProfile.update({
+        photo_profile: publicUrl,
+      });
       res.status(200).send({
         message: 'Your Profile Picture Successfully Updated : ' + req.file.originalname,
         url: publicUrl,

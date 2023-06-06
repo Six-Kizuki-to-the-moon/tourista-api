@@ -94,7 +94,9 @@ export const uploadTripImage = async (req, res) => {
 
   try {
     const bucket = storage.bucket(bucketName);
+    const folderName = 'trip_image'; // Nama folder di GCS
     const fileName = `trip_${id}_${file.originalname}`;
+    const filePath = `${folderName}/${fileName}`; // Path file di GCS
     const fileOptions = {
       metadata: {
         contentType: file.mimetype
@@ -102,7 +104,7 @@ export const uploadTripImage = async (req, res) => {
       resumable: false
     };
 
-    const blob = bucket.file(fileName);
+    const blob = bucket.file(filePath);
     const blobStream = blob.createWriteStream(fileOptions);
 
     blobStream.on('error', (error) => {
@@ -136,5 +138,6 @@ export const uploadTripImage = async (req, res) => {
     return res.status(500).json({ error: 'Error uploading file' });
   }
 };
+
 
   
