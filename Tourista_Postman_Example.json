@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "48f80dd4-2cc3-4e17-8d5f-dd23e59aeb97",
+		"name": "Tourista",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27385027"
+	},
+	"item": [
+		{
+			"name": "[DEPRECATED]users/getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic2FuZHkiLCJlbWFpbCI6InNhbmR5QGdtYWlsLmNvbSIsImlhdCI6MTY4NTI2MzE1NywiZXhwIjoxNjg1MzQ5NTU3fQ.bFAb2wGXpJq5JasDF_TRca5QQe7pglQNiD6uxZzITEU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ujik_ganteng",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ujik1@ganteng.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ujik12345",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "ujik12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "ujik1@ganteng.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ujik12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/getProfileById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/createProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjE3MCwiZXhwIjoxNjg2MTI4NTcwfQ.NCawNBHDx8jP_ZWqmYcg_3I9u71skCPIPerSp7-XYP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "ujikkk",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "082188883333",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Jalan Ujik",
+							"type": "text"
+						},
+						{
+							"key": "photo_profile",
+							"value": "https://example.com/example.png",
+							"type": "text"
+						},
+						{
+							"key": "user_lat",
+							"value": "2214.316656",
+							"type": "text"
+						},
+						{
+							"key": "user_lot",
+							"value": "-12412.4221",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/createProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"createProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/uploadProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/msandypr/Pictures/2023-05-11-20-55-20-965.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/uploadProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"uploadProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/updateProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Ujiksss",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "08228921842",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "afsasfasfafsafas",
+							"type": "text"
+						},
+						{
+							"key": "photo_profile",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_lat",
+							"value": "-867.432",
+							"type": "text"
+						},
+						{
+							"key": "user_lot",
+							"value": "6436.4444",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/updateProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"updateProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/deleteProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/users/deleteProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"deleteProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trip/getTrip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trip/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trip/createTrip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "trip_name",
+							"value": "My Trip 2",
+							"type": "text"
+						},
+						{
+							"key": "trip_detail",
+							"value": "This is a description of my trip",
+							"type": "text"
+						},
+						{
+							"key": "trip_image",
+							"value": "https://example.com/image.png",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "use_lodging",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trip/uploadTripImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/msandypr/Downloads/Pictures/Cyber Web Indonesia Logo.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/trip/1/uploadImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"1",
+						"uploadImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trip/updateTrip",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "trip_name",
+							"value": "asasfas",
+							"type": "text"
+						},
+						{
+							"key": "trip_detail",
+							"value": "This is a description of my trip",
+							"type": "text"
+						},
+						{
+							"key": "trip_image",
+							"value": "https://example.com/image.png",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "use_lodging",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/trip/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trip/deleteTrip",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trip/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
