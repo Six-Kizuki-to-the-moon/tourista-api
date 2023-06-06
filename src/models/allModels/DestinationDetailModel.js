@@ -37,17 +37,18 @@ export const DestinationDetail = db.define('destination_detail', {
   destination_lot: {
     type: DataTypes.DOUBLE
   },
-  umkm_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: false,
-    references: {
-      model: Umkm,
-      key: 'umkm_id'
-    }
-  },
+  // umkm_id: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  //   primaryKey: false,
+  //   references: {
+  //     model: Umkm,
+  //     key: 'umkm_id'
+  //   }
+  // },
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false
 });
 
 // Added the relationship between DestinationDetail and DestinationWisata

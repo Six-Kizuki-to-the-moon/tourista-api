@@ -6,7 +6,6 @@ import DestinationPenginapan from './DestinationPenginapanModel.js';
 export const ReviewPenginapan = db.define('review_penginapan', {
   user_penginapan: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     primaryKey: false,
     references: {
       model: UserProfile,
@@ -15,7 +14,6 @@ export const ReviewPenginapan = db.define('review_penginapan', {
   },
   penginapan_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     primaryKey: false,
     references: {
       model: DestinationPenginapan,
