@@ -53,7 +53,5 @@ export const DestinationDetail = db.define('destination_detail', {
 
 // Added the relationship between DestinationDetail and DestinationWisata
 DestinationDetail.belongsTo(DestinationWisata, { foreignKey: 'name_wisata', targetKey: 'name_wisata' });
-// Added the relationship between DestinationDetail and Umkm
-DestinationDetail.belongsTo(Umkm, { foreignKey: 'umkm_id', targetKey: 'umkm_id' });
 
 export default DestinationDetail;
