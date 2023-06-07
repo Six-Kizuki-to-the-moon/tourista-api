@@ -4,6 +4,7 @@ import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
+import { createDestinationWisata, getDestinationWisataById, updateDestinationWisata, deleteDestinationWisata } from '../controllers/DestinationWisata.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -36,5 +37,10 @@ router.put('/trip/:id', updateTrip);
 router.delete('/trip/:id', deleteTrip);
 router.post('/trip/:id/uploadImage', processFileMiddleware, uploadTripImage);
 
+// controllers/DestinationWisata.js routes
+router.get('/destination/:id', getDestinationWisataById);
+router.post('/destination', createDestinationWisata);
+router.put('/destination/:id', updateDestinationWisata);
+router.delete('/destination/:id', deleteDestinationWisata);
 
 export default router;
