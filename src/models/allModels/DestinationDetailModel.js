@@ -1,7 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
 import { DestinationWisata } from './DestinationWisataModel.js';
-import { Umkm } from './UmkmModel.js';
 
 export const DestinationDetail = db.define('destination_detail', {
   name_wisata: {
@@ -37,15 +36,6 @@ export const DestinationDetail = db.define('destination_detail', {
   destination_long: {
     type: DataTypes.DOUBLE
   },
-  // umkm_id: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  //   primaryKey: false,
-  //   references: {
-  //     model: Umkm,
-  //     key: 'umkm_id'
-  //   }
-  // },
 }, {
   freezeTableName: true,
   timestamps: false

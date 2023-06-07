@@ -5,6 +5,7 @@ import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
 import { createDestinationWisata, getDestinationWisataById, updateDestinationWisata, deleteDestinationWisata } from '../controllers/DestinationWisata.js';
+import { createDestinationDetail, getDestinationDetailById, updateDestinationDetail, deleteDestinationDetail, uploadDestinationDetailImage } from '../controllers/DestinationDetail.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -42,5 +43,12 @@ router.get('/destination/:id', getDestinationWisataById);
 router.post('/destination', createDestinationWisata);
 router.put('/destination/:id', updateDestinationWisata);
 router.delete('/destination/:id', deleteDestinationWisata);
+
+// controllers/Destination.js routes
+router.get('/destination/detail/:id', getDestinationDetailById);
+router.post('/destination/detail', createDestinationDetail);
+router.put('/destination/detail/:id', updateDestinationDetail);
+router.delete('/destination/detail/:id', deleteDestinationDetail);
+router.post('/destination/detail/:id/uploadImage', processFileMiddleware, uploadDestinationDetailImage);
 
 export default router;
