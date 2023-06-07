@@ -34,13 +34,13 @@ try{
     await Users.sync(); //Automatically generate table if not exists
     await UserProfile.sync(); //Automatically generate table if not exists
     await Trip.sync(); //Automatically generate table if not exists
-    await Umkm.sync(); //Automatically generate table if not exists
+    // await Umkm.sync(); //Automatically generate table if not exists
     await DestinationWisata.sync(); //Automatically generate table if not exists
-    await DestinationPenginapan.sync(); //Automatically generate table if not exists
     await DestinationDetail.sync(); //Automatically generate table if not exists
-    await ReviewPenginapan.sync(); //Automatically generate table if not exists
     await ReviewWisata.sync(); //Automatically generate table if not exists
-    await UmkmDetail.sync(); //Automatically generate table if not exists
+    await DestinationPenginapan.sync(); //Automatically generate table if not exists
+    await ReviewPenginapan.sync(); //Automatically generate table if not exists
+    // await UmkmDetail.sync(); //Automatically generate table if not exists
 } catch(error){
     console.error(error);
 }

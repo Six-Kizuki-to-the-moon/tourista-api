@@ -5,7 +5,6 @@ import { Umkm } from './UmkmModel.js';
 export const UmkmDetail = db.define('umkm_detail', {
   name_umkm: {
     type: DataTypes.STRING,
-    unique: true
   },
   owner_umkm: {
     type: DataTypes.STRING
@@ -22,7 +21,6 @@ export const UmkmDetail = db.define('umkm_detail', {
   },
   photo_umkm: {
     type: DataTypes.STRING,
-    unique: true
   },
 }, {
   freezeTableName: true

@@ -34,7 +34,7 @@ export const DestinationDetail = db.define('destination_detail', {
   destination_lat: {
     type: DataTypes.DOUBLE
   },
-  destination_lot: {
+  destination_long: {
     type: DataTypes.DOUBLE
   },
   // umkm_id: {

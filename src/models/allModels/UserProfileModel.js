@@ -6,6 +6,12 @@ export const UserProfile = db.define('user_profile', {
   name: {
     type: DataTypes.STRING
   },
+  age: {
+    type: DataTypes.INTEGER
+  },
+  email: {
+    type: DataTypes.STRING,
+  },
   phone_number: {
     type: DataTypes.STRING
   },
