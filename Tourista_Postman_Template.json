@@ -674,6 +674,226 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "destination/detail/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/detail/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name_wisata",
+							"value": "Jonggol",
+							"type": "text"
+						},
+						{
+							"key": "description_wisata",
+							"value": "Kota Jonggol",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Perkotaaan",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Bogor",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000000",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "4.5",
+							"type": "text"
+						},
+						{
+							"key": "time_minutes",
+							"value": "120",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "123.456,789.012",
+							"type": "text"
+						},
+						{
+							"key": "destination_lat",
+							"value": "12.345",
+							"type": "text"
+						},
+						{
+							"key": "destination_long",
+							"value": "67.890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/destination/detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/detail/uploadImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/msandypr/Pictures/Bangkit_2023_Virtual_Background.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/destination/detail/1/uploadImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"detail",
+						"1",
+						"uploadImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/detail/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "description_wisata",
+							"value": "test update",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "3000000",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "time_minutes",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "destination_lat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "destination_long",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/destination/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/detail/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
