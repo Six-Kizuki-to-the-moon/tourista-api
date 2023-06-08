@@ -181,7 +181,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0MjEzNSwiZXhwIjoxNjg2MzI4NTM1fQ.E6JW8jYpEfanL-imW7suJUbh5J6B0BuJ38AUZuZ3vsI",
 							"type": "string"
 						}
 					]
@@ -211,7 +211,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjE3MCwiZXhwIjoxNjg2MTI4NTcwfQ.NCawNBHDx8jP_ZWqmYcg_3I9u71skCPIPerSp7-XYP8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0NDczNywiZXhwIjoxNjg2MzMxMTM3fQ.ES_heAIYou52PH6Ki12_CZ4RAyI2C-xVzHYMiRFNIPo",
 							"type": "string"
 						}
 					]
@@ -276,7 +276,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMkBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0NTI3OSwiZXhwIjoxNjg2MzMxNjc5fQ.7Hbd24Bf8tTJ7KBIiso_IRGJihR-aOSy5eD-e9Ueaik",
 							"type": "string"
 						}
 					]
@@ -289,7 +289,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Pictures/2023-05-11-20-55-20-965.jpg"
+							"src": "/C:/Users/msandypr/Pictures/Sandy_Logo.png"
 						}
 					]
 				},
@@ -434,7 +434,7 @@
 					"urlencoded": [
 						{
 							"key": "trip_name",
-							"value": "Silver Package Trip",
+							"value": "Gold Package Trip",
 							"type": "text"
 						},
 						{
@@ -480,7 +480,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Downloads/Pictures/Cyber Web Indonesia Logo.png"
+							"src": "/C:/Users/msandypr/Pictures/Me1.jpg"
 						}
 					]
 				},
@@ -567,7 +567,7 @@
 			"response": []
 		},
 		{
-			"name": "destination/getDestinationWisata",
+			"name": "destination/get",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -587,117 +587,7 @@
 			"response": []
 		},
 		{
-			"name": "destination/createDestinationWisata",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "trip_name_type",
-							"value": "Silver Package Trip",
-							"type": "text"
-						},
-						{
-							"key": "name_wisata",
-							"value": "Swiss",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/destination",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"destination"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "destination/updateDestinationWisata",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "trip_name_type",
-							"value": "Gold Package Trip",
-							"type": "text"
-						},
-						{
-							"key": "name_wisata",
-							"value": "Japan, Akihabara",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/destination/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"destination",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "destination/deleteDestinationWisata",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/destination/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"destination",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "destination/detail/get",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/destination/detail/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"destination",
-						"detail",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "destination/detail/create",
+			"name": "destination/create",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -757,7 +647,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/destination/detail",
+					"raw": "http://localhost:5000/destination/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -765,14 +655,14 @@
 					"port": "5000",
 					"path": [
 						"destination",
-						"detail"
+						"create"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "destination/detail/uploadImage",
+			"name": "destination/uploadImage",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -782,12 +672,12 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Pictures/Bangkit_2023_Virtual_Background.png"
+							"src": "/C:/Users/msandypr/Pictures/2023-05-11-20-55-20-965.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/destination/detail/1/uploadImage",
+					"raw": "http://localhost:5000/destination/1/uploadImage",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -795,7 +685,6 @@
 					"port": "5000",
 					"path": [
 						"destination",
-						"detail",
 						"1",
 						"uploadImage"
 					]
@@ -804,7 +693,7 @@
 			"response": []
 		},
 		{
-			"name": "destination/detail/update",
+			"name": "destination/update",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -859,7 +748,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/destination/detail/1",
+					"raw": "http://localhost:5000/destination/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -867,6 +756,46 @@
 					"port": "5000",
 					"path": [
 						"destination",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tripDetail/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trip/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
 						"detail",
 						"1"
 					]
@@ -875,19 +804,102 @@
 			"response": []
 		},
 		{
-			"name": "destination/detail/delete",
+			"name": "tripDetail/create",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "trip_name_type",
+							"value": "Gold Package Trip",
+							"type": "text"
+						},
+						{
+							"key": "name_wisata",
+							"value": "Jonggol",
+							"type": "text"
+						},
+						{
+							"key": "visited",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
 				"url": {
-					"raw": "http://localhost:5000/destination/detail/1",
+					"raw": "http://localhost:5000/trip/detail/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"destination",
+						"trip",
+						"detail",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tripDetail/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "trip_name_type",
+							"value": "Gold Package Trip",
+							"type": "text"
+						},
+						{
+							"key": "name_wisata",
+							"value": "Japan, Akihabara",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/trip/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tripDetail/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trip/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
 						"detail",
 						"1"
 					]
