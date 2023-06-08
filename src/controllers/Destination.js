@@ -1,39 +1,31 @@
-import DestinationDetail from "../models/allModels/DestinationDetailModel.js";
+import Destination from "../models/allModels/DestinationModel.js";
 import gcs from '../config/gcs.js';
-import DestinationWisata from "../models/allModels/DestinationWisataModel.js";
 
 const storage = gcs;
 const bucketName = 'tourista-test.appspot.com';
 
-export const getDestinationDetailById = async (req, res) => {
-  const destinationDetailId = req.params.id;
+export const getDestinationById = async (req, res) => {
+  const destinationId = req.params.id;
 
   try {
-    const destinationDetail = await DestinationDetail.findByPk(destinationDetailId, {
-      include: [
-        {
-          model: DestinationWisata,
-          attributes: ['name_wisata'],
-        },
-      ],
-    });
+    const destination = await Destination.findByPk(destinationId);
 
-    if (!destinationDetail) {
-      return res.status(404).json({ msg: "Destination Detail not found" });
+    if (!destination) {
+      return res.status(404).json({ msg: "Destination not found" });
     }
 
-    res.json(destinationDetail);
+    res.json(destination);
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Internal server error" });
   }
 };
 
-export const createDestinationDetail = async (req, res) => {
+export const createDestination = async (req, res) => {
   const { name_wisata, description_wisata, category, city, price, rating, time_minutes, coordinate, destination_lat, destination_long } = req.body;
 
   try {
-    const destinationDetail = await DestinationDetail.create({
+    const destination = await Destination.create({
       name_wisata,
       description_wisata,
       category,
@@ -46,26 +38,25 @@ export const createDestinationDetail = async (req, res) => {
       destination_long,
     });
 
-    res.json(destinationDetail);
+    res.json(destination);
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Internal server error" });
   }
 };
 
-export const updateDestinationDetail = async (req, res) => {
+export const updateDestination = async (req, res) => {
   const { name_wisata, description_wisata, category, city, price, rating, time_minutes, coordinate, destination_lat, destination_long } = req.body;
-  const destinationDetailId = req.params.id;
+  const destinationId = req.params.id;
 
   try {
-    const destinationDetail = await DestinationDetail.findByPk(destinationDetailId);
+    const destination = await Destination.findByPk(destinationId);
 
-    if (!destinationDetail) {
-      return res.status(404).json({ msg: "Destination Detail not found" });
+    if (!destination) {
+      return res.status(404).json({ msg: "Destination not found" });
     }
 
-    await destinationDetail.update({
-    //   name_wisata,
+    await destination.update({
       description_wisata,
       category,
       city,
@@ -77,32 +68,32 @@ export const updateDestinationDetail = async (req, res) => {
       destination_long,
     });
 
-    res.json({ msg: "Destination Detail updated successfully" });
+    res.json({ msg: "Destination updated successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Internal server error" });
   }
 };
 
-export const deleteDestinationDetail = async (req, res) => {
-  const destinationDetailId = req.params.id;
+export const deleteDestination = async (req, res) => {
+  const destinationId = req.params.id;
 
   try {
-    const destinationDetail = await DestinationDetail.findByPk(destinationDetailId);
+    const destination = await Destination.findByPk(destinationId);
 
-    if (!destinationDetail) {
-      return res.status(404).json({ msg: "Destination Detail not found" });
+    if (!destination) {
+      return res.status(404).json({ msg: "Destination not found" });
     }
 
-    await destinationDetail.destroy();
-    res.json({ msg: "Destination Detail deleted successfully" });
+    await destination.destroy();
+    res.json({ msg: "Destination deleted successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Internal server error" });
   }
 };
 
-export const uploadDestinationDetailImage = async (req, res) => {
+export const uploadDestinationImage = async (req, res) => {
   const { id } = req.params;
   const file = req.file;
 
@@ -134,18 +125,18 @@ export const uploadDestinationDetailImage = async (req, res) => {
       const publicUrl = `https://storage.googleapis.com/${bucketName}/${blob.name}`;
 
       try {
-        const destinationDetail = await DestinationDetail.findByPk(id);
-        if (destinationDetail) {
-          await destinationDetail.update({ destination_photo: publicUrl });
+        const destination = await Destination.findByPk(id);
+        if (destination) {
+          await destination.update({ destination_photo: publicUrl });
           return res.status(200).json({
-            message: 'File uploaded and destination detail image updated successfully',
+            message: 'File uploaded and destination image updated successfully',
             fileUrl: publicUrl
           });
         }
-        return res.status(404).json({ message: 'Destination Detail not found' });
+        return res.status(404).json({ message: 'Destination not found' });
       } catch (error) {
-        console.log('Error updating destination detail image:', error);
-        return res.status(500).json({ error: 'Error updating destination detail image' });
+        console.log('Error updating destination image:', error);
+        return res.status(500).json({ error: 'Error updating destination image' });
       }
     });
 

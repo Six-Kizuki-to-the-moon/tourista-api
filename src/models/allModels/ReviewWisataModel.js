@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
 import UserProfile from './UserProfileModel.js';
-import DestinationDetail from './DestinationDetailModel.js';
+import { Destination } from './DestinationModel.js';
 
 export const ReviewWisata = db.define('review_wisata', {
   user_wisata: {
@@ -16,7 +16,7 @@ export const ReviewWisata = db.define('review_wisata', {
     type: DataTypes.INTEGER,
     primaryKey: false,
     references: {
-      model: DestinationDetail,
+      model: Destination,
       key: 'id'
     }
   },
@@ -32,7 +32,7 @@ export const ReviewWisata = db.define('review_wisata', {
 // Added the relationship between ReviewWisata and UserProfile
 ReviewWisata.belongsTo(UserProfile, { foreignKey: 'user_wisata', targetKey: 'id' });
 // Added the relationship between Review and DestinationDetail
-ReviewWisata.belongsTo(DestinationDetail, { foreignKey: 'wisata_id', targetKey: 'id' });
+ReviewWisata.belongsTo(Destination, { foreignKey: 'wisata_id', targetKey: 'id' });
 ReviewWisata.removeAttribute('id');
 
 export default ReviewWisata;

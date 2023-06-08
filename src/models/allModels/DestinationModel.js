@@ -1,10 +1,10 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import db from '../../config/Database.js';
-import { DestinationWisata } from './DestinationWisataModel.js';
 
-export const DestinationDetail = db.define('destination_detail', {
+export const Destination = db.define('destination', {
   name_wisata: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    unique: true,
   },
   description_wisata: {
     type: DataTypes.STRING
@@ -41,7 +41,4 @@ export const DestinationDetail = db.define('destination_detail', {
   timestamps: false
 });
 
-// Added the relationship between DestinationDetail and DestinationWisata
-DestinationDetail.belongsTo(DestinationWisata, { foreignKey: 'name_wisata', targetKey: 'name_wisata' });
-
-export default DestinationDetail;
+export default Destination;

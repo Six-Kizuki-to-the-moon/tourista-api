@@ -13,13 +13,13 @@ import cors from "cors";
 import Users from "./src/models/allModels/UserModel.js";
 import UserProfile from "./src/models/allModels/UserProfileModel.js";
 import Trip from "./src/models/allModels/TripModel.js";
-import DestinationWisata from "./src/models/allModels/DestinationWisataModel.js";
 import DestinationPenginapan from "./src/models/allModels/DestinationPenginapanModel.js";
 import Umkm from "./src/models/allModels/UmkmModel.js";
-import DestinationDetail from "./src/models/allModels/DestinationDetailModel.js";
+import { Destination } from "./src/models/allModels/DestinationModel.js";
 import ReviewPenginapan from "./src/models/allModels/ReviewPenginapanModel.js";
 import ReviewWisata from "./src/models/allModels/ReviewWisataModel.js";
 import UmkmDetail from "./src/models/allModels/UmkmDetailModel.js";
+import { TripDetail } from "./src/models/allModels/TripDetailModel.js";
 
 
 
@@ -35,8 +35,8 @@ try{
     await UserProfile.sync(); //Automatically generate table if not exists
     await Trip.sync(); //Automatically generate table if not exists
     // await Umkm.sync(); //Automatically generate table if not exists
-    await DestinationWisata.sync(); //Automatically generate table if not exists
-    await DestinationDetail.sync(); //Automatically generate table if not exists
+    await Destination.sync(); //Automatically generate table if not exists
+    await TripDetail.sync(); //Automatically generate table if not exists
     await ReviewWisata.sync(); //Automatically generate table if not exists
     await DestinationPenginapan.sync(); //Automatically generate table if not exists
     await ReviewPenginapan.sync(); //Automatically generate table if not exists

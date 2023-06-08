@@ -4,8 +4,8 @@ import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
-import { createDestinationWisata, getDestinationWisataById, updateDestinationWisata, deleteDestinationWisata } from '../controllers/DestinationWisata.js';
-import { createDestinationDetail, getDestinationDetailById, updateDestinationDetail, deleteDestinationDetail, uploadDestinationDetailImage } from '../controllers/DestinationDetail.js';
+import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail } from '../controllers/TripDetail.js';
+import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage } from '../controllers/Destination.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -38,17 +38,17 @@ router.put('/trip/:id', updateTrip);
 router.delete('/trip/:id', deleteTrip);
 router.post('/trip/:id/uploadImage', processFileMiddleware, uploadTripImage);
 
-// controllers/DestinationWisata.js routes
-router.get('/destination/:id', getDestinationWisataById);
-router.post('/destination', createDestinationWisata);
-router.put('/destination/:id', updateDestinationWisata);
-router.delete('/destination/:id', deleteDestinationWisata);
+// controllers/TripDetail.js routes
+router.get('/trip/detail/:id', getTripDetailById);
+router.post('/trip/detail/create', createTripDetail);
+router.put('/trip/detail/:id', updateTripDetail);
+router.delete('/trip/detail/:id', deleteTripDetail);
 
 // controllers/Destination.js routes
-router.get('/destination/detail/:id', getDestinationDetailById);
-router.post('/destination/detail', createDestinationDetail);
-router.put('/destination/detail/:id', updateDestinationDetail);
-router.delete('/destination/detail/:id', deleteDestinationDetail);
-router.post('/destination/detail/:id/uploadImage', processFileMiddleware, uploadDestinationDetailImage);
+router.get('/destination/:id', getDestinationById);
+router.post('/destination/create', createDestination);
+router.put('/destination/:id', updateDestination);
+router.delete('/destination/:id', deleteDestination);
+router.post('/destination/:id/uploadImage', processFileMiddleware, uploadDestinationImage);
 
 export default router;
