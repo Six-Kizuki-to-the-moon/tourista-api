@@ -58,10 +58,14 @@ export const createTripDetail = async (req, res) => {
 
 export const updateTripDetail = async (req, res) => {
   const { user_id, trip_name_type, name_wisata, visited } = req.body;
-  const tripDetailId = req.params.id;
+  const userId = req.params.id;
 
   try {
-    const tripDetail = await TripDetail.findByPk(tripDetailId);
+    const tripDetail = await TripDetail.findOne({
+      where: {
+        user_id: userId
+      }
+    });
 
     if (!tripDetail) {
       return res.status(404).json({ msg: "Trip Detail not found" });
@@ -82,10 +86,14 @@ export const updateTripDetail = async (req, res) => {
 };
 
 export const deleteTripDetail = async (req, res) => {
-  const tripDetailId = req.params.id;
+  const userId = req.params.id;
 
   try {
-    const tripDetail = await TripDetail.findByPk(tripDetailId);
+    const tripDetail = await TripDetail.findOne({
+      where: {
+        user_id: userId
+      }
+    });
 
     if (!tripDetail) {
       return res.status(404).json({ msg: "Trip Detail not found" });
