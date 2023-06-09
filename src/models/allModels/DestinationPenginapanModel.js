@@ -3,9 +3,6 @@ import db from '../../config/Database.js';
 import { Trip } from './TripModel.js';
 
 export const DestinationPenginapan = db.define('destination_penginapan', {
-  use_lodging: {
-    type: DataTypes.BOOLEAN
-  },
   name_penginapan: {
     type: DataTypes.STRING
   },
@@ -23,6 +20,6 @@ export const DestinationPenginapan = db.define('destination_penginapan', {
 });
 
 // Added the relationship between DestinationPenginapan and Trip
-DestinationPenginapan.belongsTo(Trip, { foreignKey: 'use_lodging', targetKey: 'use_lodging' })
+// DestinationPenginapan.belongsTo(Trip, { foreignKey: 'use_lodging', targetKey: 'use_lodging' })
 
 export default DestinationPenginapan;
