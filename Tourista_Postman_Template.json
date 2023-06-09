@@ -250,6 +250,11 @@
 							"key": "user_lot",
 							"value": "-12412.4221",
 							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "17",
+							"type": "text"
 						}
 					]
 				},
@@ -434,7 +439,7 @@
 					"urlencoded": [
 						{
 							"key": "trip_name",
-							"value": "Gold Package Trip",
+							"value": "Bronze Package Trip",
 							"type": "text"
 						},
 						{
@@ -450,8 +455,9 @@
 						},
 						{
 							"key": "use_lodging",
-							"value": "1",
-							"type": "text"
+							"value": "",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -596,12 +602,12 @@
 					"urlencoded": [
 						{
 							"key": "name_wisata",
-							"value": "Jonggol",
+							"value": "Bogor",
 							"type": "text"
 						},
 						{
 							"key": "description_wisata",
-							"value": "Kota Jonggol",
+							"value": "Kota Bogor",
 							"type": "text"
 						},
 						{
@@ -788,7 +794,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/trip/detail/1",
+					"raw": "http://localhost:5000/trip/detail/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -797,7 +803,7 @@
 					"path": [
 						"trip",
 						"detail",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -813,7 +819,7 @@
 					"urlencoded": [
 						{
 							"key": "user_id",
-							"value": "2",
+							"value": "1",
 							"type": "text"
 						},
 						{
@@ -859,19 +865,14 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "trip_name_type",
-							"value": "Gold Package Trip",
-							"type": "text"
-						},
-						{
-							"key": "name_wisata",
-							"value": "Japan, Akihabara",
+							"key": "visited",
+							"value": "1",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/trip/detail/1",
+					"raw": "http://localhost:5000/trip/detail/2/Silver%20Package%20Trip/Jonggol",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -880,19 +881,21 @@
 					"path": [
 						"trip",
 						"detail",
-						"1"
+						"2",
+						"Silver%20Package%20Trip",
+						"Jonggol"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "tripDetail/delete",
+			"name": "tripDetail/deleteById",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/trip/detail/1",
+					"raw": "http://localhost:5000/trip/detail/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -901,7 +904,29 @@
 					"path": [
 						"trip",
 						"detail",
-						"1"
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tripDetail/deleteByIdAndTripNameType",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trip/detail/2/Bronze%20Package%20Trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trip",
+						"detail",
+						"2",
+						"Bronze%20Package%20Trip"
 					]
 				}
 			},
