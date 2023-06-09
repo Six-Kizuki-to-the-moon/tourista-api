@@ -13,8 +13,7 @@ export const Trip = db.define('trip', {
     type: DataTypes.STRING
   },
   use_lodging: {
-    type: DataTypes.BOOLEAN,
-    unique: true
+    type: DataTypes.BOOLEAN
   }
 }, {
   freezeTableName: true

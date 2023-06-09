@@ -7,7 +7,7 @@ export const getTripDetailById = async (req, res) => {
   const userId = req.params.id;
 
   try {
-    const tripDetail = await TripDetail.findOne({
+    const tripDetail = await TripDetail.findAll({
       where: {
         user_id: userId
       },
@@ -59,11 +59,15 @@ export const createTripDetail = async (req, res) => {
 export const updateTripDetail = async (req, res) => {
   const { user_id, trip_name_type, name_wisata, visited } = req.body;
   const userId = req.params.id;
+  const tripNameType = req.params.trip_name_type;
+  const nameWisata = req.params.name_wisata;
 
   try {
     const tripDetail = await TripDetail.findOne({
-      where: {
-        user_id: userId
+      where: { 
+        user_id : userId,
+        trip_name_type : tripNameType,
+        name_wisata : nameWisata
       }
     });
 
@@ -71,12 +75,7 @@ export const updateTripDetail = async (req, res) => {
       return res.status(404).json({ msg: "Trip Detail not found" });
     }
 
-    await tripDetail.update({
-      user_id,
-      trip_name_type,
-      name_wisata,
-      visited,
-    });
+    await tripDetail.update({ visited });
 
     res.json({ msg: "Trip Detail updated successfully" });
   } catch (error) {
@@ -85,14 +84,13 @@ export const updateTripDetail = async (req, res) => {
   }
 };
 
+
 export const deleteTripDetail = async (req, res) => {
   const userId = req.params.id;
 
   try {
     const tripDetail = await TripDetail.findOne({
-      where: {
-        user_id: userId
-      }
+      where: { user_id: userId }
     });
 
     if (!tripDetail) {
@@ -106,3 +104,25 @@ export const deleteTripDetail = async (req, res) => {
     res.status(500).json({ msg: "Internal server error" });
   }
 };
+
+export const deleteTripDetailByIdAndTripType = async (req, res) => {
+  const userId = req.params.id;
+  const tripNameType = req.params.trip_name_type;
+
+  try {
+    const tripDetail = await TripDetail.findOne({
+      where: { user_id: userId, trip_name_type: tripNameType }
+    });
+
+    if (!tripDetail) {
+      return res.status(404).json({ msg: "Trip Detail not found" });
+    }
+
+    await tripDetail.destroy();
+    res.json({ msg: "Trip Detail deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Internal server error" });
+  }
+};
+

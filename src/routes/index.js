@@ -4,7 +4,7 @@ import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
-import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail } from '../controllers/TripDetail.js';
+import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail, deleteTripDetailByIdAndTripType } from '../controllers/TripDetail.js';
 import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage } from '../controllers/Destination.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
@@ -41,8 +41,9 @@ router.post('/trip/:id/uploadImage', processFileMiddleware, uploadTripImage);
 // controllers/TripDetail.js routes
 router.get('/trip/detail/:id', getTripDetailById);
 router.post('/trip/detail/create', createTripDetail);
-router.put('/trip/detail/:id', updateTripDetail);
+router.put('/trip/detail/:id/:trip_name_type/:name_wisata', updateTripDetail);
 router.delete('/trip/detail/:id', deleteTripDetail);
+router.delete('/trip/detail/:id/:trip_name_type', deleteTripDetailByIdAndTripType);
 
 // controllers/Destination.js routes
 router.get('/destination/:id', getDestinationById);
