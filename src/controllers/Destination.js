@@ -21,6 +21,20 @@ export const getDestinationById = async (req, res) => {
   }
 };
 
+export const getAllDestination = async (req, res) => {
+  try {
+    const destinations = await Destination.findAll({
+      order: [['rating', 'DESC']],
+    });
+
+    res.json(destinations);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Internal server error" });
+  }
+};
+
+
 export const createDestination = async (req, res) => {
   const { name_wisata, description_wisata, category, city, price, rating, time_minutes, coordinate, destination_lat, destination_long } = req.body;
 

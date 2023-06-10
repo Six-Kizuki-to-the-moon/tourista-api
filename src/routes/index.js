@@ -5,7 +5,7 @@ import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
 import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
 import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail, deleteTripDetailByIdAndTripType } from '../controllers/TripDetail.js';
-import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage } from '../controllers/Destination.js';
+import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage, getAllDestination } from '../controllers/Destination.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -46,6 +46,7 @@ router.delete('/trip/detail/:id', deleteTripDetail);
 router.delete('/trip/detail/:id/:trip_name_type', deleteTripDetailByIdAndTripType);
 
 // controllers/Destination.js routes
+router.get('/destination', getAllDestination);
 router.get('/destination/:id', getDestinationById);
 router.post('/destination/create', createDestination);
 router.put('/destination/:id', updateDestination);
