@@ -1,6 +1,9 @@
 <h1 align="center">Tourista API 👋</h1>
 <p align="center">API for Tourista, an travel app by Six Kizuki, built using Node.js, Express, MySQL.</p>
 
+![readme](https://github.com/msandypr/tourista-api/assets/60559936/3f213a1b-5a72-4609-acc2-fa06a37298fb)
+
+
 ## Prerequisites and Technology
 
 - [Express](https://expressjs.com/)
