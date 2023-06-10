@@ -31,7 +31,7 @@ export const getUserProfileById = async (req, res) => {
 
 
 export const createUserProfile = async (req, res) => {
-  const { name, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
+  const { name, age, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
   const email = req.email; // Using an email from a verified token
 
   try {
@@ -47,6 +47,7 @@ export const createUserProfile = async (req, res) => {
     // Create a new user profile if it doesn't already exist
     const userProfile = await UserProfile.create({
       name,
+      age,
       phone_number,
       address,
       photo_profile,
@@ -64,7 +65,7 @@ export const createUserProfile = async (req, res) => {
 
 
 export const updateUserProfile = async (req, res) => {
-  const { name, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
+  const { name, age, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
   try {
     const userProfile = await UserProfile.findOne({ where: { email: req.email } });
     if (!userProfile) {
@@ -72,6 +73,7 @@ export const updateUserProfile = async (req, res) => {
     }
     await userProfile.update({
       name,
+      age,
       phone_number,
       address,
       photo_profile,
