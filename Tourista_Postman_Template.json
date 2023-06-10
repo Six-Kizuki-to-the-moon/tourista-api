@@ -573,6 +573,25 @@
 			"response": []
 		},
 		{
+			"name": "destination/getAllRatingDesc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "destination/get",
 			"request": {
 				"method": "GET",
