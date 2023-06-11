@@ -97,7 +97,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "ujik1@ganteng.com",
+							"value": "ujik2@ganteng.com",
 							"type": "text"
 						},
 						{
@@ -181,7 +181,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0MjEzNSwiZXhwIjoxNjg2MzI4NTM1fQ.E6JW8jYpEfanL-imW7suJUbh5J6B0BuJ38AUZuZ3vsI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjQ5MDYzMCwiZXhwIjoxNjg2NTc3MDMwfQ.yRr6mKQ7F2NXlQIytsJFtHVcNiDk1aa6SmBSrSJrkGQ",
 							"type": "string"
 						}
 					]
@@ -211,7 +211,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0NDczNywiZXhwIjoxNjg2MzMxMTM3fQ.ES_heAIYou52PH6Ki12_CZ4RAyI2C-xVzHYMiRFNIPo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjQ5MDYzMCwiZXhwIjoxNjg2NTc3MDMwfQ.yRr6mKQ7F2NXlQIytsJFtHVcNiDk1aa6SmBSrSJrkGQ",
 							"type": "string"
 						}
 					]
@@ -486,7 +486,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Pictures/Me1.jpg"
+							"src": "/C:/Users/msandypr/Pictures/Me/2023-05-11-20-55-20-965.jpg"
 						}
 					]
 				},
@@ -597,7 +597,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/destination/1",
+					"raw": "http://localhost:5000/destination/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -605,7 +605,7 @@
 					"port": "5000",
 					"path": [
 						"destination",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -621,12 +621,12 @@
 					"urlencoded": [
 						{
 							"key": "name_wisata",
-							"value": "Bogor",
+							"value": "Ancol",
 							"type": "text"
 						},
 						{
 							"key": "description_wisata",
-							"value": "Kota Bogor",
+							"value": "Kota Jakarta",
 							"type": "text"
 						},
 						{
@@ -636,7 +636,7 @@
 						},
 						{
 							"key": "city",
-							"value": "Bogor",
+							"value": "Jakarta",
 							"type": "text"
 						},
 						{
@@ -697,7 +697,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Pictures/2023-05-11-20-55-20-965.jpg"
+							"src": "/C:/Users/msandypr/Pictures/Me/2023-05-11-20-55-20-965.jpg"
 						}
 					]
 				},
@@ -813,7 +813,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/trip/detail/2",
+					"raw": "http://localhost:5000/trip/detail/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -822,7 +822,7 @@
 					"path": [
 						"trip",
 						"detail",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -843,12 +843,12 @@
 						},
 						{
 							"key": "trip_name_type",
-							"value": "Gold Package Trip",
+							"value": "Bronze Package Trip",
 							"type": "text"
 						},
 						{
 							"key": "name_wisata",
-							"value": "Jonggol",
+							"value": "Ancol",
 							"type": "text"
 						},
 						{
@@ -891,7 +891,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/trip/detail/2/Silver%20Package%20Trip/Jonggol",
+					"raw": "http://localhost:5000/trip/detail/1/Bronze%20Package%20Trip/Ancol",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -900,9 +900,9 @@
 					"path": [
 						"trip",
 						"detail",
-						"2",
-						"Silver%20Package%20Trip",
-						"Jonggol"
+						"1",
+						"Bronze%20Package%20Trip",
+						"Ancol"
 					]
 				}
 			},
@@ -946,6 +946,167 @@
 						"detail",
 						"2",
 						"Bronze%20Package%20Trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/getAllReviewsByPlace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/review/place/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"review",
+						"place",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/getAllReviewsByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/review/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"review",
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/createReview",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_wisata",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "wisata_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "wisata_rating",
+							"value": "3.3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/destination/review/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"review",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/updateReview",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "wisata_rating",
+							"value": "4.8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/destination/review/update/:user_wisata/:wisata_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"review",
+						"update",
+						":user_wisata",
+						":wisata_id"
+					],
+					"variable": [
+						{
+							"key": "user_wisata",
+							"value": "1"
+						},
+						{
+							"key": "wisata_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destination/deleteReview",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destination/review/delete/:user_wisata/:wisata_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destination",
+						"review",
+						"delete",
+						":user_wisata",
+						":wisata_id"
+					],
+					"variable": [
+						{
+							"key": "user_wisata",
+							"value": "1"
+						},
+						{
+							"key": "wisata_id",
+							"value": "2"
+						}
 					]
 				}
 			},
