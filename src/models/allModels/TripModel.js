@@ -14,7 +14,7 @@ export const Trip = db.define('trip', {
   },
   use_lodging: {
     type: DataTypes.BOOLEAN,
-    allowNull: false
+    allowNull: true
   }
 }, {
   freezeTableName: true

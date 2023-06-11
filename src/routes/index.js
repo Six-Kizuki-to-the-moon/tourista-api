@@ -6,6 +6,7 @@ import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserPro
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
 import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail, deleteTripDetailByIdAndTripType } from '../controllers/TripDetail.js';
 import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage, getAllDestination } from '../controllers/Destination.js';
+import { getAllReviewsByPlace, getAllReviewsById, createReview, updateReview, deleteReview } from '../controllers/ReviewWisata.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -52,5 +53,12 @@ router.post('/destination/create', createDestination);
 router.put('/destination/:id', updateDestination);
 router.delete('/destination/:id', deleteDestination);
 router.post('/destination/:id/uploadImage', processFileMiddleware, uploadDestinationImage);
+
+// controllers/ReviewWisata.js routes
+router.get('/destination/review/place/:wisata_id', getAllReviewsByPlace);
+router.get('/destination/review/user/:user_wisata', getAllReviewsById);
+router.post('/destination/review/create', createReview);
+router.put('/destination/review/update/:user_wisata/:wisata_id', updateReview);
+router.delete('/destination/review/delete/:user_wisata/:wisata_id', deleteReview);
 
 export default router;
