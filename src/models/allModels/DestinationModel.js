@@ -7,7 +7,7 @@ export const Destination = db.define('destination', {
     unique: true,
   },
   description_wisata: {
-    type: DataTypes.STRING
+    type: DataTypes.TEXT
   },
   category: {
     type: DataTypes.STRING

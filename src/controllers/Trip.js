@@ -2,7 +2,7 @@ import Trip from "../models/allModels/TripModel.js";
 import gcs from '../config/gcs.js';
 
 const storage = gcs;
-const bucketName = 'tourista-test.appspot.com';
+const bucketName = 'tourista_bucket';
 
 export const getTripById = async (req, res) => {
     const tripId = req.params.id;

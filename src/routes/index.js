@@ -2,7 +2,7 @@ import express from 'express';
 import { verifyToken } from '../middleware/VerifyToken.js';
 import { refreshToken } from '../controllers/RefreshToken.js';
 import { getUsers, Register, Login, Logout } from '../controllers/Users.js';
-import { getUserProfileById, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
+import { getUserProfileByUsername, createUserProfile, updateUserProfile, deleteUserProfile, uploadFile } from '../controllers/UserProfile.js';
 import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from '../controllers/Trip.js';
 import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail, deleteTripDetailByIdAndTripType } from '../controllers/TripDetail.js';
 import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage, getAllDestination } from '../controllers/Destination.js';
@@ -26,7 +26,7 @@ router.get('/auth/token', refreshToken);
 router.delete('/auth/logout', Logout);
 
 // controllers/UserProfile.js routes
-router.get("/users/:id", verifyToken, getUserProfileById);
+router.get("/users/:username", verifyToken, getUserProfileByUsername);
 router.post('/users/createProfile', verifyToken, createUserProfile);
 router.put('/users/updateProfile', verifyToken, updateUserProfile);
 router.delete('/users/deleteProfile', verifyToken, deleteUserProfile);

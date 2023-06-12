@@ -3,7 +3,8 @@ import db from '../../config/Database.js';
 
 export const Users = db.define('user_account', {
   username: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    unique: true
   },
   email: {
     type: DataTypes.STRING,

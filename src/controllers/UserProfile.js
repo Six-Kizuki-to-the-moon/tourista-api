@@ -5,17 +5,17 @@ import gcs from '../config/gcs.js';
 import model from '../models/index.js';
 
 const storage = gcs;
-const bucketName = 'tourista-test.appspot.com';
+const bucketName = 'tourista_bucket';
 const bucket = storage.bucket(bucketName);
 
-export const getUserProfileById = async (req, res) => {
-  const userId = req.params.id; // Gets the ID from the URL parameter
+export const getUserProfileByUsername = async (req, res) => {
+  const username = req.params.username; // Gets the username from the URL parameter
   const email = req.email; // Using an email from a verified token
 
   try {
-    // Retrieving UserProfile information by ID
+    // Retrieving UserProfile information by username
     const userProfile = await UserProfile.findOne({
-      where: { id: userId, email }
+      where: { username, email }
     });
 
     if (!userProfile) {
@@ -30,14 +30,16 @@ export const getUserProfileById = async (req, res) => {
 };
 
 
+
 export const createUserProfile = async (req, res) => {
   const { name, age, phone_number, address, photo_profile, user_lat, user_lot } = req.body;
   const email = req.email; // Using an email from a verified token
+  const username = req.username;
 
   try {
     // Check if a user profile with the same email already exists
     const existingProfile = await UserProfile.findOne({
-      where: { email }
+      where: { email, username }
     });
 
     if (existingProfile) {
@@ -46,6 +48,8 @@ export const createUserProfile = async (req, res) => {
 
     // Create a new user profile if it doesn't already exist
     const userProfile = await UserProfile.create({
+      username,
+      email,
       name,
       age,
       phone_number,
@@ -53,7 +57,6 @@ export const createUserProfile = async (req, res) => {
       photo_profile,
       user_lat,
       user_lot,
-      email
     });
 
     res.json(userProfile);
