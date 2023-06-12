@@ -57,7 +57,7 @@
 						},
 						{
 							"key": "email",
-							"value": "ujik1@ganteng.com",
+							"value": "ujik@ganteng.com",
 							"type": "text"
 						},
 						{
@@ -97,7 +97,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "ujik2@ganteng.com",
+							"value": "ujik@ganteng.com",
 							"type": "text"
 						},
 						{
@@ -174,14 +174,14 @@
 			"response": []
 		},
 		{
-			"name": "users/getProfileById",
+			"name": "users/getProfileByUsername",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjQ5MDYzMCwiZXhwIjoxNjg2NTc3MDMwfQ.yRr6mKQ7F2NXlQIytsJFtHVcNiDk1aa6SmBSrSJrkGQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrQGdhbnRlbmcuY29tIiwiaWF0IjoxNjg2NTkwNDM3LCJleHAiOjE2ODY2NzY4Mzd9.syhz2GqOOV7xVTJ7quV4ukKJSdJBewQ_4so2Wm5tC8Y",
 							"type": "string"
 						}
 					]
@@ -189,7 +189,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/1",
+					"raw": "http://localhost:5000/users/:username",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -197,7 +197,13 @@
 					"port": "5000",
 					"path": [
 						"users",
-						"1"
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "ujik_ganteng"
+						}
 					]
 				}
 			},
@@ -211,7 +217,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjQ5MDYzMCwiZXhwIjoxNjg2NTc3MDMwfQ.yRr6mKQ7F2NXlQIytsJFtHVcNiDk1aa6SmBSrSJrkGQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrQGdhbnRlbmcuY29tIiwiaWF0IjoxNjg2NTkwNDM3LCJleHAiOjE2ODY2NzY4Mzd9.syhz2GqOOV7xVTJ7quV4ukKJSdJBewQ_4so2Wm5tC8Y",
 							"type": "string"
 						}
 					]
@@ -281,7 +287,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMkBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjI0NTI3OSwiZXhwIjoxNjg2MzMxNjc5fQ.7Hbd24Bf8tTJ7KBIiso_IRGJihR-aOSy5eD-e9Ueaik",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrQGdhbnRlbmcuY29tIiwiaWF0IjoxNjg2NTkwNDM3LCJleHAiOjE2ODY2NzY4Mzd9.syhz2GqOOV7xVTJ7quV4ukKJSdJBewQ_4so2Wm5tC8Y",
 							"type": "string"
 						}
 					]
@@ -294,7 +300,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/msandypr/Pictures/Sandy_Logo.png"
+							"src": "/C:/Users/msandypr/Pictures/Me/Me1.jpg"
 						}
 					]
 				},
@@ -321,7 +327,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrQGdhbnRlbmcuY29tIiwiaWF0IjoxNjg2NTkwNDM3LCJleHAiOjE2ODY2NzY4Mzd9.syhz2GqOOV7xVTJ7quV4ukKJSdJBewQ_4so2Wm5tC8Y",
 							"type": "string"
 						}
 					]
@@ -387,7 +393,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrMUBnYW50ZW5nLmNvbSIsImlhdCI6MTY4NjA0MjY2NSwiZXhwIjoxNjg2MTI5MDY1fQ.5pB69g_atT8lSGlKAr2gddbFgPSHa5473RlYoigIwn8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidWppa19nYW50ZW5nIiwiZW1haWwiOiJ1amlrQGdhbnRlbmcuY29tIiwiaWF0IjoxNjg2NTg5NzE2LCJleHAiOjE2ODY2NzYxMTZ9.oUymGOMOYxrDvdw4rMWd-fcQxOUxB7ZwtdpCyT-KzVY",
 							"type": "string"
 						}
 					]
