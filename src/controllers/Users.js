@@ -86,7 +86,7 @@ export const Login = async (req, res) => {
         // Uncomment line above if you using HTTPS.
       });
   
-      res.json({ msg: "Login successful", username, email, accessToken });
+      res.json({ msg: "Login successful", userId, username, email, accessToken });
     } catch (error) {
       res.status(500).json({ msg: "Internal server error" });
     }

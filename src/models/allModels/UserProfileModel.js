@@ -3,14 +3,17 @@ import db from '../../config/Database.js';
 import { Users } from './UserModel.js';
 
 export const UserProfile = db.define('user_profile', {
+  username: {
+    type: DataTypes.STRING
+  },
+  email: {
+    type: DataTypes.STRING,
+  },
   name: {
     type: DataTypes.STRING
   },
   age: {
     type: DataTypes.INTEGER
-  },
-  email: {
-    type: DataTypes.STRING,
   },
   phone_number: {
     type: DataTypes.STRING
@@ -33,5 +36,6 @@ export const UserProfile = db.define('user_profile', {
 
 // Added the relationship between UserProfile and Users
 UserProfile.belongsTo(Users, { foreignKey: 'email', targetKey: 'email' });
+UserProfile.belongsTo(Users, { foreignKey: 'username', targetKey: 'username' });
 
 export default UserProfile;
