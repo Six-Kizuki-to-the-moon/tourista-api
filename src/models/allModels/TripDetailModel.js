@@ -19,9 +19,13 @@ export const TripDetail = db.define('trip_detail', {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },
+  createdAt: {
+    type: DataTypes.DATE
+  },
 }, {
   freezeTableName: true,
-  primaryKey: false
+  primaryKey: false,
+  timestamps: false
 });
 
 // Added the relationship between DestinationWisata and Trip
