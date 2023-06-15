@@ -7,6 +7,7 @@ import { createTrip, getTripById, updateTrip, deleteTrip, uploadTripImage } from
 import { createTripDetail, getTripDetailById, updateTripDetail, deleteTripDetail, deleteTripDetailByIdAndTripType } from '../controllers/TripDetail.js';
 import { createDestination, getDestinationById, updateDestination, deleteDestination, uploadDestinationImage, getAllDestination } from '../controllers/Destination.js';
 import { getAllReviewsByPlace, getAllReviewsById, createReview, updateReview, deleteReview } from '../controllers/ReviewWisata.js';
+import { recommendCollab, recommendContentBased, recommendSimilarItem } from '../controllers/MachineLearning.js';
 import processFileMiddleware from '../middleware/ProcessFile.js';
 // import { uploadFile } from '../controllers/PhotoProfileGcs.js';
 
@@ -60,5 +61,10 @@ router.get('/destination/review/user/:user_wisata', getAllReviewsById);
 router.post('/destination/review/create', createReview);
 router.put('/destination/review/update/:user_wisata/:wisata_id', updateReview);
 router.delete('/destination/review/delete/:user_wisata/:wisata_id', deleteReview);
+
+// controllers/MachineLearning.js routes
+router.post('/ml/recommendCollab', recommendCollab);
+router.post('/ml/recommendContentBased', recommendContentBased);
+router.post('/ml/recommendSimilarItem', recommendSimilarItem);
 
 export default router;
